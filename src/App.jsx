@@ -1,13 +1,17 @@
+import AnimeContainer from "./components/AnimeContainer";
+import BtnElement from "./components/BtnElement";
 import Header from "./components/header";
 import Slider from "./components/slider";
 import "./index.css";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 
 function App() {
   return (
     <>
       <Header />
       <Slider/>
+      <BtnElement />
+      <AnimeContainer/>
     </>
   );
 }
