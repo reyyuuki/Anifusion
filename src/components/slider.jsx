@@ -55,7 +55,7 @@ const Slider = () => {
               </div>
             </div>
             <div className="description">
-              <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+              <p>{item.description.length > 200 ? (item.description.replace(/<\/?[^>]+(>|$)/g, "")).substring(0,200) + "..." :item.description.replace(/<\/?[^>]+(>|$)/g, "") }</p>
             </div>
           </div>
           <div className="info">
