@@ -9,9 +9,10 @@ import {
   faCircleInfo,
   faCirclePlay,
 } from "@fortawesome/free-solid-svg-icons";
+import useEmblaCarousel from 'embla-carousel-react'
 const Slider = () => {
   const [result, setResult] = useState([]);
-
+  const [emblaRef] = useEmblaCarousel();
   useEffect(() => {
     const Fetch = async () => {
       const data = await ApiFetch();
@@ -27,10 +28,11 @@ const Slider = () => {
 
   if (!result[0]) return <div>Loading</div>;
   return (
-    <div className="Wrapper">
+    <div className="embla" ref={emblaRef}>
+<div className="embla__container">
     {result.map((item) => (
-    <div className="container">
-      <div className="ImageContainer">
+    
+      <div className="embla__slide">
         <div className="gradient"></div>
         <img src={item.cover} alt="anime" />
         <div className="sliderInfo">
@@ -70,8 +72,9 @@ const Slider = () => {
           </div>
         </div>
       </div>
+       ))}
       </div>
-      ))}
+     
     </div>
   );
 };
