@@ -9,7 +9,7 @@ import {
   faCircleInfo,
   faCirclePlay,
 } from "@fortawesome/free-solid-svg-icons";
-const Slider = (props) => {
+const Slider = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
@@ -27,33 +27,35 @@ const Slider = (props) => {
 
   if (!result[0]) return <div>Loading</div>;
   return (
+    <div className="Wrapper">
+    {result.map((item) => (
     <div className="container">
       <div className="ImageContainer">
         <div className="gradient"></div>
-        <img src={result[props.index].cover} alt="anime" />
+        <img src={item.cover} alt="anime" />
         <div className="sliderInfo">
           <div className="rightBox">
-            <h1>{result[props.index].title.english}</h1>
+            <h1>{item.title.english}</h1>
             <div className="iconsBox">
               <div className="icon">
                 <FontAwesomeIcon icon={faWineGlass} className="iconStyle" />
-                <p>{result[props.index].type}</p>
+                <p>{item.type}</p>
               </div>
               <div className="icon">
                 <FontAwesomeIcon icon={faWineGlass} className="iconStyle" />
-                <p>{result[props.index].duration}</p>
+                <p>{item.duration}</p>
               </div>
               <div className="icon">
                 <FontAwesomeIcon icon={faStar} className="iconStyle" />
-                <p>{result[props.index].rating / 10}</p>
+                <p>{item.rating / 10}</p>
               </div>
               <div className="icon">
                 <FontAwesomeIcon icon={faClock} className="iconStyle" />
-                <p>{result[props.index].duration} mins</p>
+                <p>{item.duration} mins</p>
               </div>
             </div>
             <div className="description">
-              <p>{result[props.index].description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+              <p>{item.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
             </div>
           </div>
           <div className="info">
@@ -68,6 +70,8 @@ const Slider = (props) => {
           </div>
         </div>
       </div>
+      </div>
+      ))}
     </div>
   );
 };
