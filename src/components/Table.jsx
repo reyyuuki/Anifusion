@@ -19,7 +19,7 @@ const Table = ({result}) => {
                   </div>
                   <div className="ItemDiv">
                   <ion-icon name="folder-open-outline"></ion-icon>
-                  {item.episode}
+                  {item.totalEpisodes}
                   </div>
                   <div className="ItemDiv">
                   <ion-icon name="star-outline"></ion-icon>8
