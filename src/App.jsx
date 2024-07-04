@@ -11,7 +11,6 @@ function App() {
     <>
       <Header />
       <Slider/>
-      <BtnElement />
       <AnimeContainer/>
       <AnimeTable />
     </>
