@@ -26,3 +26,10 @@ export const TrendingApi = async  () => {
         const result = await response.json();
         return result.results;
 }
+
+export const TopAiringTable = async  () => {
+
+        const response = await fetch('https://consumet-api-two-nu.vercel.app/anime/gogoanime/top-airing');
+        const result = await response.json();
+        return result.results;
+}

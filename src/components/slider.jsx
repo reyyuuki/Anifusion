@@ -30,9 +30,8 @@ const Slider = () => {
   return (
     <div className="embla" ref={emblaRef}>
 <div className="embla__container">
-    {result.map((item) => (
-    
-      <div className="embla__slide">
+    {result.map((item,index) => (
+      <div className="embla__slide" key={index}>
         <div className="gradient"></div>
         <img src={item.cover} alt="anime" className="SliderImage"/>
         <div className="sliderInfo">
