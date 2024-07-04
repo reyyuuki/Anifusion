@@ -27,9 +27,9 @@ export const TrendingApi = async  () => {
         return result.results;
 }
 
-export const TopAiringTable = async  () => {
+export const RandomApi = async  () => {
 
-        const response = await fetch('https://consumet-api-two-nu.vercel.app/anime/gogoanime/top-airing');
+        const response = await fetch('https://consumet-api-two-nu.vercel.app/meta/anilist/random-anime');
         const result = await response.json();
         return result.results;
 }
