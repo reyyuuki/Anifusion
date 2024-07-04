@@ -1,19 +1,55 @@
 
 .AnimeContainer{
     width: 100%;
-    height: 900px;
+    height: 1300px;
     display: flex;
+    flex-direction: column;
 }
 .RecentlyUpdated{
     width: 100%;
     height: 30%;
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
+    padding: 10px 20px;
+    justify-content: space-evenly;
+    gap: 10px;
+    color:white;
+    font-family: "Poppins";
+}
+.NewestText{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 15px;
+}
+.TrendingSection{
+    display: flex;
+    width:100%;
+    height: 100%;
+    gap:20px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    transition: 2s ease;
 }
 .AnimeCard{
-    width: 20%;
-    height: 80%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 15%;
+    align-items: center;
+}
+.AnimeImage{
+    width: 90%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.AnimeInfo{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width:100%;
 }
 

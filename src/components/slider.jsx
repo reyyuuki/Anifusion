@@ -1,5 +1,5 @@
 import "../css/slider.css";
-import { ApiFetch } from "./apiFetch";
+import { NewsetApi } from "./apiFetch";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,7 +15,7 @@ const Slider = () => {
   const [emblaRef] = useEmblaCarousel();
   useEffect(() => {
     const Fetch = async () => {
-      const data = await ApiFetch();
+      const data = await NewsetApi();
       if (data) {
         setResult(data);
         console.log(data);
@@ -34,7 +34,7 @@ const Slider = () => {
     
       <div className="embla__slide">
         <div className="gradient"></div>
-        <img src={item.cover} alt="anime" />
+        <img src={item.cover} alt="anime" className="SliderImage"/>
         <div className="sliderInfo">
           <div className="rightBox">
             <h1>{item.title.english}</h1>
