@@ -33,6 +33,11 @@
     scrollbar-width: none;
     transition: 2s ease;
 }
+.IdLink{
+    flex: 0 0 15%;
+    text-decoration: none;
+    color:white;
+}
 .AnimeCard{
     display: flex;
     flex-direction: column;

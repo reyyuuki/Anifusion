@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useEmblaCarousel from 'embla-carousel-react'
 const Slider = () => {
+  
+  
   const [result, setResult] = useState([]);
   const [emblaRef] = useEmblaCarousel();
   useEffect(() => {
@@ -25,8 +27,9 @@ const Slider = () => {
     };
     Fetch();
   }, []);
-
+  const id = result.id;
   if (!result[0]) return <div>Loading</div>;
+  
   return (
     <div className="embla" ref={emblaRef}>
 <div className="embla__container">
@@ -73,7 +76,6 @@ const Slider = () => {
       </div>
        ))}
       </div>
-     
     </div>
   );
 };

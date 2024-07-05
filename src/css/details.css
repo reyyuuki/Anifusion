@@ -1,0 +1,62 @@
+.TopContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:600px;
+    position: relative;
+}
+.gradientContainer{
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.721),
+        #302e2ec0,
+        rgb(0, 0, 0)
+    );
+    position: absolute;
+    top: 0;
+}
+.InfoContainer{
+    width:90%;
+    height:95%;
+    background-color:#302e2eed;
+    display: flex;
+}
+.DetailsCard{
+    width:70%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.image{
+    object-fit: cover;
+    height: 100%;
+    z-index: 1;
+}
+.IdIcons{
+    display: flex;
+    gap: 30px;
+    height: 10%;
+}
+.Item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.DescriptionId{
+    z-index: 1;
+    display: flex;
+    width: 90%;
+    height: 30%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.IdTitle{
+    height: 10%;
+}

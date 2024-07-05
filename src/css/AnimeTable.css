@@ -49,6 +49,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color:#908e9b;
 }
 .ItemDiv{
     width:25%;
@@ -62,4 +63,5 @@
     width:80%;
     font-size: 16px;
     text-align: center;
+    color:white;
 }
