@@ -2,6 +2,9 @@ import { Link, Outlet } from 'react-router-dom';
 import '../css/Episodes.css';
 
 const Episodes = ({ data }) => {
+    if (!data || !data.episodes) {
+        return <div>No episodes available</div>;
+    }
     console.log(data);
     return (
         <div className="EpisodesContainer">
@@ -9,6 +12,7 @@ const Episodes = ({ data }) => {
                 <h1>Episodes</h1>
                 {data.episodes.map((item) => {
                     const episodeId = item.id;
+                    console.log(episodeId);
                     return (
                         <Link to={`episodes/${episodeId}`} className="EpisodesRow" key={episodeId}>
                             <img src={item.image} alt="Bane" className='EpisodeImage' />
@@ -19,7 +23,7 @@ const Episodes = ({ data }) => {
                         </Link>
                     );
                 })}
-                <Outlet />
+                
             </div>
         </div>
     );

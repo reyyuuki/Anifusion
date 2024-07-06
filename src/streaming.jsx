@@ -16,7 +16,7 @@ console.log(episodeId);
       try {
         const response = await FetchById(id);
         const result = await FetchEpisodes(episodeId);
-        if (response) {
+        if (response && result) {
           setData(response);
           setEpisodeData(result);
         } else {
@@ -27,7 +27,7 @@ console.log(episodeId);
       }
     };
     Fetching();
-  }, [episodeId]);
+  }, [id,episodeId]);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -36,8 +36,8 @@ console.log(episodeId);
   return (
     <>
       <Header />
-      <Player data={episodeData}/>
-      <Episodes data={data}/>
+      {episodeData && <Player data={episodeData} />}
+      {data && <Episodes data={data} />}
     </>
   );
 };
