@@ -24,7 +24,7 @@
     border-radius: 20px;
 }
 .details-Info{
-    color: white;
+    color:#302e2ec0;
     height: 90%;
     width:70%;
     z-index: 20;
@@ -33,7 +33,10 @@
     justify-content: flex-end;
     gap:5px;
 }
-.AnimeCard{
+.details-Info h1{
+    color: white;
+}
+.Details-AnimeCard{
     width:20%;
     height: 300px;
     object-fit: cover;

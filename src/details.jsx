@@ -4,6 +4,7 @@ import "./css/details.css";
 import Header from "./components/header";
 import InfoElement from "./components/infoElement";
 import DetailsCourasale from "./components/details-Courasale";
+import CharacterTable from "./components/CharacterTable";
 
 const Details = () => {
   const { id } = useParams();
@@ -46,6 +47,7 @@ const Details = () => {
         </div>
       </div>
       <InfoElement data={data} />
+      <CharacterTable data={data}/>
     </>
   );
 };

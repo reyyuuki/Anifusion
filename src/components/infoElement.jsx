@@ -49,7 +49,7 @@ const InfoElement = ({ data }) => {
             ></ion-icon>
           </div>
 
-          <div className="InfoValue">{data.rating / 10}/10</div>
+          <div className="InfoValue">{data.rating / 10 || "N/A"}/10</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Status</div>
@@ -59,7 +59,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.status}</div>
+          <div className="InfoValue">{data.status || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">TotalEpisodes</div>
@@ -69,7 +69,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.totalEpisodes}</div>
+          <div className="InfoValue">{data.totalEpisodes || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Average Duration</div>
@@ -89,7 +89,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.type}</div>
+          <div className="InfoValue">{data.type || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Studio</div>
@@ -99,7 +99,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.studios}</div>
+          <div className="InfoValue">{data.studios || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Popularity</div>
@@ -109,7 +109,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.popularity}</div>
+          <div className="InfoValue">{data.popularity || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Season</div>
@@ -119,7 +119,7 @@ const InfoElement = ({ data }) => {
               className="Icon"
             ></ion-icon>
           </div>
-          <div className="InfoValue">{data.season}</div>
+          <div className="InfoValue">{data.season || "N/A"}</div>
         </div>
         <div className="InfoRow">
           <div className="InfoTitle">Start</div>
