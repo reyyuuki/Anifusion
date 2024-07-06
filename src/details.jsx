@@ -5,6 +5,8 @@ import Header from "./components/header";
 import InfoElement from "./components/infoElement";
 import DetailsCourasale from "./components/details-Courasale";
 import CharacterTable from "./components/CharacterTable";
+import AnimeList from "./components/AnimeList";
+import { FetchById } from "./components/apiFetch";
 
 const Details = () => {
   const { id } = useParams();
@@ -13,16 +15,10 @@ const Details = () => {
   useEffect(() => {
     const Fetching = async () => {
       try {
-        const response = await fetch(
-          `https://consumet-api-two-nu.vercel.app/meta/anilist/info/${id.replace(
-            /:/,
-            ""
-          )}?provider=gogoanime`
-        );
-        const result = await response.json();
-        console.log(result);
-        if (result) {
-          setData(result);
+        const response = await FetchById(id);
+        console.log(response);
+        if (response) {
+          setData(response);
         } else {
           console.log("Error fetching data");
         }
@@ -31,7 +27,7 @@ const Details = () => {
       }
     };
     Fetching();
-  }, [id]);
+  }, []);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -47,10 +43,13 @@ const Details = () => {
         </div>
       </div>
       <InfoElement data={data} />
+      <div class="RecentlyUpdated">
+        <h2 className="NewestText">Recommended</h2>
+        <AnimeList result={data.recommendations} />
+      </div>
       {data.characters && data.characters.length > 0 && (
         <CharacterTable data={data} />
       )}
-      
     </>
   );
 };

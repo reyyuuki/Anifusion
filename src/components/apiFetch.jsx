@@ -33,3 +33,17 @@ export const RandomApi = async  () => {
         const result = await response.json();
         return result.results;
 }
+
+export const FetchById = async  (id) => {
+        
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/info/${id}?provider=gogoanime`);
+        const result = await response.json();
+        return result;
+}
+
+export const FetchEpisodes = async  (id) => {
+        
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/watch/${id}`);
+        const result = await response.json();
+        return result;
+}

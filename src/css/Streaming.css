@@ -1,0 +1,10 @@
+
+.MediaPlayer{
+    width:95%;
+    height:500px;
+    display: flex;
+    position: relative;
+    top: 65px;
+    left: 34px;
+    border-radius: 20px;
+}

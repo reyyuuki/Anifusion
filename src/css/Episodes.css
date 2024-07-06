@@ -1,0 +1,58 @@
+
+.EpisodesContainer{
+    width: 100%;
+    min-height: 800px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    top: 100px;
+    color: white;
+    font-family: "Poppins";
+}
+.EpisodesWrapper{
+    width:95%;
+    min-height: 95%;
+    background-color: #302e2ec0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    border-radius: 20px;
+}
+.EpisodesWrapper h1{
+    font-size: 40px;
+}
+.EpisodesRow{
+    width:95%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height:150px;
+    background-color: #302e2ec0;
+    border-radius: 20px;
+    gap: 40px;
+    padding: 10px;
+}
+.EpisodeImage{
+    object-fit: cover;
+    width:11%;
+    height: 100%;
+    background-color: red;
+    border-radius: 20px;
+}
+.EpisodesInfo{
+    width:89%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.EpisodesInfo h3{
+    color:grey;
+}
+.EpisodesInfo h2{
+    font-size: 30px;
+}

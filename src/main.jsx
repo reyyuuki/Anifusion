@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Details from './details.jsx';
+import Streaming from './streaming.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,17 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: <Details/>,
-  }
+  },
+  {
+    path:"/Streaming/:id",
+    element: <Streaming/>,
+    children: [
+      {
+        path: "/Streaming/:id/episodes/:episodeId",
+        element: <Streaming />,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -16,6 +16,7 @@
     position: fixed;
     z-index: 100;
     backdrop-filter: blur(10px);
+    font-family: "Poppins";
 }
 .box1{
     height: 60%;
