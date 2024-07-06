@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./css/details.css";
+import Header from "./components/header";
+import InfoElement from "./components/infoElement";
+import DetailsCourasale from "./components/details-Courasale";
 
 const Details = () => {
   const { id } = useParams();
@@ -34,33 +37,16 @@ const Details = () => {
   }
 
   return (
-    <div className="TopContainer">
-      <div className="gradientContainer"></div>
-      <div className="InfoContainer">
-        <div className="DetailsCard">
-            <h1 className="IdTitle">{data.title.english || data.title.romaji}</h1>
-            <div className="IdIcons">
-          <div className="Item">
-            <ion-icon name="tv-outline"></ion-icon>
-            {data.type}
-          </div>
-          <div className="Item">
-            <ion-icon name="calendar-outline"></ion-icon>
-            {data.releaseDate}
-          </div>
-          <div className="Item">
-            <ion-icon name="folder-open-outline"></ion-icon>
-            {data.totalEpisodes}
-          </div>
-          <div className="Item">
-            <ion-icon name="star-outline"></ion-icon>8
-          </div>
-          </div>
-          <div className="DescriptionId">{data.description}</div>
+    <>
+      <Header />
+      <DetailsCourasale data={data}/>
+      <div className="DescriptionContainer">
+        <div className="Description">
+          <p>{data.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
         </div>
-        <img src={data.image} alt={data.title.english} className="image" />
       </div>
-    </div>
+      <InfoElement data={data} />
+    </>
   );
 };
 

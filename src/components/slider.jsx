@@ -27,7 +27,7 @@ const Slider = () => {
     };
     Fetch();
   }, []);
-  const id = result.id;
+
   if (!result[0]) return <div>Loading</div>;
   
   return (
