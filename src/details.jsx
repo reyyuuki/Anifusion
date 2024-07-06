@@ -47,7 +47,10 @@ const Details = () => {
         </div>
       </div>
       <InfoElement data={data} />
-      <CharacterTable data={data}/>
+      {data.characters && data.characters.length > 0 && (
+        <CharacterTable data={data} />
+      )}
+      
     </>
   );
 };
