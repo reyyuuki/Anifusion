@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <Streaming/>,
     children: [
       {
-        path: "/Streaming/:id/episodes/:episodeId",
+        path: "/episodes/:episodeId",
         element: <Streaming />,
       },
     ],
