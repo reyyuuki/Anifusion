@@ -6,8 +6,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Details from './details.jsx';
 import Streaming from './streaming.jsx';
+import Details from './details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,12 +21,7 @@ const router = createBrowserRouter([
   {
     path:"/Streaming/:id",
     element: <Streaming/>,
-    children: [
-      {
-        path: "/episodes/:episodeId",
-        element: <Streaming />,
-      },
-    ],
+    
   },
 ]);
 
