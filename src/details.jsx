@@ -35,7 +35,6 @@ const Details = () => {
 
   return (
     <>
-      <Header />
       <DetailsCourasale data={data}/>
       <div className="DescriptionContainer">
         <div className="Description">

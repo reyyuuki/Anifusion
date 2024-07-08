@@ -1,13 +1,11 @@
-:root{
-    --clr--primary-color:#302e2ec0;
-}
+
 
 *{
     padding: 0;
     margin: 0;
 }
 .header{
-    background-color: rgba(0, 0, 0, 0.209);
+    background-color: rgba(0, 0, 0, 0.074);
     width: 100%;
     height:65px;
     display: flex;

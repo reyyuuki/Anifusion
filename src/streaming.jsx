@@ -81,7 +81,6 @@ const Streaming = () => {
         <Loader />
       ) : (
         <>
-          <Header />
           <div className="StreamingContainer">
             {episodeData && (
               <MediaPlayer
@@ -125,7 +124,11 @@ const Streaming = () => {
                 ))}
             </div>
           </div>
-          <AnimeInfo/>
+          <div className="stream-AnimeDetails">
+          <h2>{data.title}</h2>
+          <h3>Episode 23</h3>
+        </div>
+          <AnimeInfo data={data}/>
         </>
       )}
     </>

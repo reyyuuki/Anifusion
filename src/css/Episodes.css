@@ -15,6 +15,11 @@
     font-size: 30px;
     color:white;
 }
+.EpisodesInfo p{
+    font-size: 16px;
+    font-weight: 500;
+    color:grey;
+}
 .EpisodesRow{
     width:100%;
     display: flex;
@@ -47,10 +52,7 @@
     gap: 10px;
     
 }
-.EpisodesInfo p{
-    font-size: 16px;
-    font-weight: 700;
-}
+
 .EpisodesRow:hover{
     transform: scale(0.95);
     background-color: #464141;

@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Streaming from './streaming.jsx';
 import Details from './details.jsx';
+import Header from './components/header.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Header/>
      <RouterProvider router={router} />
   </React.StrictMode>,
 )
