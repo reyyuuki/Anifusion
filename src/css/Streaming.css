@@ -1,10 +1,20 @@
 
-.MediaPlayer{
-    width:95%;
+.Player{
+    width:53%;
+    height:480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.StreamingContainer{
+    width:100%;
     height:500px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr--background-color);
     position: relative;
-    top: 65px;
-    left: 34px;
-    border-radius: 20px;
+    top:65px;
 }

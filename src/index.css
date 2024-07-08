@@ -8,6 +8,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  
+    --clr--primary-color:#302e2ec0;
+    --clr--background-color:rgb(19, 11, 19);
+
 }
 body{
   background-color: black;

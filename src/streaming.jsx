@@ -16,6 +16,7 @@ import {
   defaultLayoutIcons,
   DefaultVideoLayout,
 } from "@vidstack/react/player/layouts/default";
+import AnimeInfo from "./components/AnimeInfo";
 
 const Streaming = () => {
   const { id } = useParams();
@@ -24,21 +25,18 @@ const Streaming = () => {
   const [loadingData, setLoadingData] = useState(true);
   const [selectEpisode, setSelectEpisode] = useState(null);
   const [currentTitle, setCurrentTitle] = useState(null);
+  const [poster, setPoster] = useState(null);
+
   useEffect(() => {
-    const Fetching = async () => {
+    const fetchData = async () => {
       try {
+        setLoadingData(true);
         const response = await FetchEpisodes(id);
         if (response) {
           setData(response);
           setSelectEpisode(response[0].id);
           setCurrentTitle(response[0].title);
-          if (selectEpisode) {
-            const StreamLink = await FetchEpisodesId(selectEpisode);
-            if (StreamLink) {
-              setEpisodeData(StreamLink);
-              setLoadingData(false);
-            }
-          }
+          setPoster(response[0].image);
         } else {
           console.log("Error fetching data");
         }
@@ -47,12 +45,33 @@ const Streaming = () => {
       }
     };
 
-    Fetching();
-  }, [selectEpisode, episodeData]);
-  const handleEpisodeSelect = (episode,EpisodeTitle) => {
+    fetchData();
+  }, [id]);
+
+  useEffect(() => {
+    const fetchEpisodeData = async () => {
+      if (selectEpisode) {
+        try {
+          const streamLink = await FetchEpisodesId(selectEpisode);
+          if (streamLink) {
+            setEpisodeData(streamLink);
+          }
+          setLoadingData(false);
+        } catch (error) {
+          console.log("Error:", error);
+          setLoadingData(false);
+        }
+      }
+    };
+
+    fetchEpisodeData();
+  }, [selectEpisode]);
+
+  const handleEpisodeSelect = (episode, EpisodeTitle,Image) => {
     if (episode) {
       setSelectEpisode(episode);
       setCurrentTitle(EpisodeTitle);
+      setPoster(Image);
     }
   };
 
@@ -63,28 +82,30 @@ const Streaming = () => {
       ) : (
         <>
           <Header />
-          {episodeData && (
-            <div className="MediaPlayer">
+          <div className="StreamingContainer">
+            {episodeData && (
               <MediaPlayer
                 playsInline
                 title={currentTitle}
                 src={episodeData.sources[3].url}
+                className="Player"
+                poster={poster}
               >
                 <MediaProvider />
-                <DefaultVideoLayout
-                  icons={defaultLayoutIcons}
+                <DefaultVideoLayout 
+                icons={defaultLayoutIcons} 
                 />
               </MediaPlayer>
-            </div>
-          )}
-          <div className="EpisodesContainer">
+            )}
             <div className="EpisodesWrapper">
               <h1>Episodes</h1>
-              {data.map((item, index) => {
-                return (
+              {data &&
+                data.map((item, index) => (
                   <div
-                    onClick={() => handleEpisodeSelect(item.id,item.title)}
-                    className="EpisodesRow"
+                    onClick={() => handleEpisodeSelect(item.id, item.title,item.image)}
+                    className={`EpisodesRow ${
+                      item.id === selectEpisode ? "ActiveRow" : ""
+                    }`}
                     key={index}
                   >
                     <img
@@ -93,13 +114,18 @@ const Streaming = () => {
                       className="EpisodeImage"
                     />
                     <div className="EpisodesInfo">
-                      <h2>{item.title}</h2>
+                      <h3>Episode {item.number}</h3>
+                      <p>
+                        {item.title.length > 25
+                          ? item.title.substring(0, 22) + "..."
+                          : item.title}
+                      </p>
                     </div>
                   </div>
-                );
-              })}
+                ))}
             </div>
           </div>
+          <AnimeInfo/>
         </>
       )}
     </>
