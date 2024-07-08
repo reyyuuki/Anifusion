@@ -6,11 +6,11 @@ import {
   DefaultVideoLayout,
 } from "@vidstack/react/player/layouts/default";
 
-const Player = ({data}) => {
+const Player = ({Episodedata, data}) => {
   return (
     <div className="MediaPlayer">
     <MediaPlayer playsInline
-      title="Sprite Fight"
+      title={data.title}
       src={data.sources[3].url}
     >
       <MediaProvider />

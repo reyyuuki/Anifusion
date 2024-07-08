@@ -43,7 +43,14 @@ export const FetchById = async  (id) => {
 
 export const FetchEpisodes = async  (id) => {
         
-        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/watch/${id}`);
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/episodes/${id}`);
+        const result = await response.json();
+        return result;
+}
+
+export const FetchEpisodesId = async  (episodeId) => {
+        
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/watch/${episodeId}`);
         const result = await response.json();
         return result;
 }
