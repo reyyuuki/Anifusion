@@ -1,12 +1,13 @@
 
 .AnimeContainer{
     width: 100%;
-    height: 1300px;
+    min-height: 1300px;
     display: flex;
     flex-direction: column;
     position: relative;
     top:140px;
     gap: 10px;
+    overflow: hidden;
 }
 .RecentlyUpdated{
     width: 100%;
