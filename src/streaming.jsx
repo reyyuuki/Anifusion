@@ -91,7 +91,7 @@ const Streaming = () => {
               <MediaPlayer
                 playsInline
                 title={currentTitle}
-                src={episodeData.sources[3].url}
+                src={episodeData.sources[4].url}
                 className="Player"
                 poster={poster}
               >

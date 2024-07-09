@@ -9,7 +9,7 @@
     margin-left: 10px;
 }
 .StreamingContainer{
-    width:100%;
+    width:100vw;
     height:500px;
     display: flex;
     justify-content: center;

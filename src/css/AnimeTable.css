@@ -14,7 +14,7 @@
 .Table{
     width:48%;
     height: 100%;
-    background-color: #302e2ec0;
+    background-color: #0d0b27b7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,10 +25,11 @@
 .Row{
     width:90%;
     height: 100px;
-    background-color: #302e2ec0;
+    background-color: #0d0b27c0;
     display: flex;
     padding: 10px;
     border-radius: 10px;
+    text-decoration: none;
 }
 .Animeimage{
     width:13%;
@@ -52,7 +53,7 @@
     color:#908e9b;
 }
 .ItemDiv{
-    width:25%;
+    min-width:20%;
     height:100%;
     display: flex;
     justify-content: center;

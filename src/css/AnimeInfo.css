@@ -109,7 +109,7 @@
 }
 .stream-Description{
     width:98%;
-    height: 100px;
+    min-height: 100px;
     border-radius: 10px;
     padding: 10px;
     border: 1px solid purple;

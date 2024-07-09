@@ -11,9 +11,9 @@
 
   
     --clr--primary-color:#302e2ec0;
-    --clr--background-color:rgb(19, 11, 19);
+    --clr--background-color:#080713;
 
 }
 body{
-  background-color: black;
+  background-color: var(--clr--background-color);
 }

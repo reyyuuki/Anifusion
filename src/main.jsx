@@ -14,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement: <div style={"font-size:40px"} ></div>
   },
   {
     path: "/details/:id",

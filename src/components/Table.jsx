@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 
 
 const Table = ({result}) => {
     return (
         <>
         {result.map((item, index) => (
-            <div className="Row" key={index}>
+            <Link key={index} to={`/details/${item.id}`} className="Row">
               <img src={item.image} alt="Anime" className="Animeimage" />
               <div className="AnimeDetails">
-                <h3 className="Titles">{item.title.english || item.title.romaji}</h3>
+                <h3 className="Titles">{(item.title.english || item.title.romaji).length > 30 ? (item.title.english || item.title.romaji).substring(0,28) + "..." : (item.title.english || item.title.romaji)}</h3>
                 <div className="AnimeIcons">
                   <div className="ItemDiv">
                   <ion-icon name="tv-outline"></ion-icon>
@@ -26,7 +27,7 @@ const Table = ({result}) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
             ))}
             </>
     );
