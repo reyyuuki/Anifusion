@@ -25,6 +25,7 @@
     overflow-y: scroll;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    transition: 1s ease;
     color: white;
 }
 .stream-tableData{
