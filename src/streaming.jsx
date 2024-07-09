@@ -11,13 +11,12 @@ import Loader from "./components/Loader";
 import "./css/Episodes.css";
 import "@vidstack/react/player/styles/default/theme.css";
 import "@vidstack/react/player/styles/default/layouts/video.css";
-import { MediaPlayer, MediaProvider,useMediaStore,  MediaPlayerInstance } from "@vidstack/react";
+import { MediaPlayer, MediaProvider } from "@vidstack/react";
 import {
   defaultLayoutIcons,
   DefaultVideoLayout,
 } from "@vidstack/react/player/layouts/default";
 import AnimeInfo from "./components/AnimeInfo";
-import { useRef } from 'react';
 
 const Streaming = () => {
   const { id } = useParams();
@@ -29,8 +28,6 @@ const Streaming = () => {
   const [currentTitle, setCurrentTitle] = useState(null);
   const [poster, setPoster] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(null);
-  const playerRef = useRef(null);
-  const { qualities, quality, autoQuality, canSetQuality } = useMediaStore(playerRef);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +41,6 @@ const Streaming = () => {
           setCurrentTitle(response[0].title);
           setPoster(response[0].image);
           setCurrentEpisode(response[0].number);
-          
         } else {
           console.log("Error fetching data");
         }
@@ -84,13 +80,6 @@ const Streaming = () => {
     }
   };
 
-  function onQualitiesChange(VideoQuality,  MediaQualitiesChangeEvent) {
-    console.log('Available qualities:', qualities);
-  }
-
-  function onQualityChange( VideoQuality ,  MediaQualityChangeEvent) {
-    console.log('Selected quality:', quality);
-  }
   return (
     <>
       {loadingData ? (
@@ -102,18 +91,15 @@ const Streaming = () => {
               <MediaPlayer
                 playsInline
                 title={currentTitle}
-                src={episodeData.sources.map((item) => item.url)}
+                src={episodeData.sources[3].url}
                 className="Player"
-                ref={playerRef}
-                onQualitiesChange={onQualitiesChange}
-                onQualityChange={onQualityChange}
+                poster={poster}
               >
                 <MediaProvider />
                 <DefaultVideoLayout 
                 icons={defaultLayoutIcons} 
                 />
               </MediaPlayer>
-              
             )}
             <div className="EpisodesWrapper">
               <h1>Episodes</h1>
