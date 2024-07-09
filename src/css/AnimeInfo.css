@@ -1,19 +1,40 @@
 
 .stream-AnimeInformation{
     width:100%;
-    height:500px;
+    height:600px;
     background-color: var(--clr--background-color);
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     position: relative;
     top:65px;
     font-family: "Poppins";
     transition: 0.5s ease;
+    gap:30px;
 }
 .stream-InfoContainer{
-    width:66%;
-    height: 500px;
+    width:65%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
 }
+.stream-table{
+    width:35%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.stream-tableData{
+    width:100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    color: white;
+}
+
 .stream-AnimeDetails{
     width:100%;
     height: 100px;
@@ -31,15 +52,24 @@
 }
 .stream-AnimeCard{
     width:100%;
-    height: 400px;
+    height: 450px;
     display: flex;
+    flex-direction: column;
     border-bottom:1px solid var(--clr--primary-color);
     color:white;
+    gap:30px;
 }
-
+.stream-AnimeCard-Details{
+    width:100%;
+    height: 250px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin-top:10px;
+}
 .stream-Image{
     width:20%;
-    height: 99%;
+    height: 100%;
     border-radius: 10px;
 }
 .stream-Informations{
@@ -74,4 +104,28 @@
     gap: 5px;
     justify-content: center;
     align-items: center;
+}
+.stream-Description{
+    width:98%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid purple;
+}
+.stream-genres{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    gap:20px;
+}
+.genres-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+    min-width:20%;
+    height: 70%;
+    border: 1px solid purple;
+    border-radius: 10px;
 }

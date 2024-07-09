@@ -21,22 +21,26 @@ import AnimeInfo from "./components/AnimeInfo";
 const Streaming = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [AnimeData, setAnimeData] = useState(null);
   const [episodeData, setEpisodeData] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
   const [selectEpisode, setSelectEpisode] = useState(null);
   const [currentTitle, setCurrentTitle] = useState(null);
   const [poster, setPoster] = useState(null);
+  const [currentEpisode, setCurrentEpisode] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoadingData(true);
         const response = await FetchEpisodes(id);
+        const AnimeInfo = await FetchById(id);
         if (response) {
           setData(response);
+          setAnimeData(AnimeInfo);
           setSelectEpisode(response[0].id);
           setCurrentTitle(response[0].title);
           setPoster(response[0].image);
+          setCurrentEpisode(response[0].number);
         } else {
           console.log("Error fetching data");
         }
@@ -67,11 +71,12 @@ const Streaming = () => {
     fetchEpisodeData();
   }, [selectEpisode]);
 
-  const handleEpisodeSelect = (episode, EpisodeTitle,Image) => {
+  const handleEpisodeSelect = (episode, EpisodeTitle,Image,EpisodeNumber) => {
     if (episode) {
       setSelectEpisode(episode);
       setCurrentTitle(EpisodeTitle);
       setPoster(Image);
+      setCurrentTitle(EpisodeNumber);
     }
   };
 
@@ -101,7 +106,7 @@ const Streaming = () => {
               {data &&
                 data.map((item, index) => (
                   <div
-                    onClick={() => handleEpisodeSelect(item.id, item.title,item.image)}
+                    onClick={() => handleEpisodeSelect(item.id, item.title,item.image,item.number)}
                     className={`EpisodesRow ${
                       item.id === selectEpisode ? "ActiveRow" : ""
                     }`}
@@ -124,11 +129,7 @@ const Streaming = () => {
                 ))}
             </div>
           </div>
-          <div className="stream-AnimeDetails">
-          <h2>{data.title}</h2>
-          <h3>Episode 23</h3>
-        </div>
-          <AnimeInfo data={data}/>
+          <AnimeInfo data={AnimeData} EpisodeData={currentEpisode}/>
         </>
       )}
     </>
