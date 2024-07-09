@@ -13,7 +13,7 @@
     --clr--primary-color:#524f7d;
     --clr--background-color:#3d3d5c;
     --clr--header-color:#0d0b27;
-    --clr--secondary-color:#5d5ca3;
+    --clr--secondary-color:#29293d;
 }
 body{
   background-color: var(--clr--background-color);
