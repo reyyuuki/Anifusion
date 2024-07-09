@@ -10,7 +10,7 @@
 .InfoTable{
     width: 95%;
     height: 95%;
-    background-color:var(--clr--background-color);
+    background-color:var(--clr--primary-color);
     border-radius: 20px;
     display: grid;
     place-items: center;
@@ -39,7 +39,7 @@
     width:20%;
     height: 100%;
     font-size: 30px;
-    color:grey;
+    color:;
     display: grid;
     place-items: center;
 }

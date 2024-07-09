@@ -10,9 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
 
   
-    --clr--primary-color:#302e2ec0;
+    --clr--primary-color:#110c5c7b;
     --clr--background-color:#080713;
     --clr--header-color:#0d0b27;
+    --clr--secondary-color:#110c5cc0;
 
 }
 body{

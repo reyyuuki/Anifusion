@@ -1,6 +1,6 @@
 .CharacterContainer{
     width:100%;
-    min-height:1500px;
+    min-height:1300px;
     display: flex;
     justify-content: space-evenly;
     font-family: "Poppins";
@@ -9,13 +9,13 @@
 .CharacterTable{
     width:45%;
     height:95%;
-    background-color: #302e2ec0;
+    background-color:var(--clr--primary-color);
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     color:white;
     padding: 10px 0px;
 }
@@ -27,7 +27,7 @@
     align-items: center;
     height:100px;
     border-radius: 10px;
-    background-color: #302e2ec0;
+    background-color: var(--clr--secondary-color);
     padding: 10px;
 }
 .CharacterImage{
