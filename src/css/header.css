@@ -34,9 +34,7 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-.Heading span{
-    color:#19afa8;
-}
+
 
 .SearchBox{
     background-color:var(--clr--header-color);
