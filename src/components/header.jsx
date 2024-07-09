@@ -11,7 +11,7 @@ import {
 const Header = () => {
   return (
     <div className="header">
-      <h1 className="Heading">YurAni </h1>
+      <h1 className="Heading">Yur<span>Ani</span> </h1>
       <div className="box1">
         <div className="SearchBox">
           <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
