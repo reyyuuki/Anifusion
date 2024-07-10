@@ -42,10 +42,7 @@ const Details = () => {
         </div>
       </div>
       <InfoElement data={data} />
-      <div class="RecentlyUpdated">
-        <h2 className="NewestText">Recommended</h2>
-        <AnimeList result={data.recommendations} />
-      </div>
+        <AnimeList result={data.recommendations} name={"Recommended"}/>
       {data.characters && data.characters.length > 0 && (
         <CharacterTable data={data} />
       )}
