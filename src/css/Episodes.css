@@ -55,7 +55,7 @@
 
 .EpisodesRow:hover{
     transform: scale(0.95);
-    background-color: #040c69;
+    background-color: #85138f;
 }
 .EpisodesRow:active{
     transform: scale(0.80);
