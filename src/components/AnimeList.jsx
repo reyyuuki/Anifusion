@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/AnimeList.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
-import 'swiper/css/scrollbar';
-import { Autoplay } from "swiper/modules";
+
 
 const AnimeList = ({ result, name }) => {
   return (
