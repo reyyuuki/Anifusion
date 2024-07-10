@@ -5,13 +5,14 @@
     top:140px;
     display: flex;
     font-family: "Poppins";
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 20px 0px;
     color: white;
+    gap: 20px;
 }
 .Table{
-    width:48%;
+    width:46%;
     background-color:var(--clr--primary-color);
     display: flex;
     flex-direction: column;

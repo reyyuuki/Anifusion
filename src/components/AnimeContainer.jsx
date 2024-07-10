@@ -42,25 +42,11 @@ const AnimeContainer = () => {
   }, []);
   return (
     <div className="AnimeContainer">
-      <div class="RecentlyUpdated">
-        <h2 className="NewestText">Newest</h2>
-        <AnimeList result={Newest} />
-      </div>
-
-      <div class="RecentlyUpdated">
-        <h2 className="NewestText">Trending</h2>
-        <AnimeList result={TrendingAnime} />
-      </div>
-
-      <div class="RecentlyUpdated">
-        <h2 className="NewestText">Popular</h2>
-        <AnimeList result={Popular} />
-      </div>
-
-      <div class="RecentlyUpdated">
-        <h2 className="NewestText">Top-Airing</h2>
-        <AnimeList result={TopRated} />
-      </div>
+      
+        <AnimeList result={Newest} name={"Newest"} />
+        <AnimeList result={TrendingAnime} name={"Trending"} />
+        <AnimeList result={Popular} name={"Most Popular"} />
+        <AnimeList result={TopRated} name={"Top-Airing"} />
     </div>
   );
 };

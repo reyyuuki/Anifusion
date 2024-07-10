@@ -5,11 +5,12 @@
 .embla {
   height: 350px;
   overflow: hidden;
-  width: 97%;
+  width: 93%;
   position: relative;
-  left: 20px;
+  left: 50px;
   top: 65px;
   border-radius: 10px;
+  font-family: "Poppins";
 }
 .embla__container {
   display: flex;
@@ -39,7 +40,7 @@
 }
 .sliderInfo {
   height: 50%;
-  width: 97%;
+  width: 100%;
   position: absolute;
   bottom: 20px;
   justify-content: space-between;
