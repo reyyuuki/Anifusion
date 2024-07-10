@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import Skeleton from '@mui/material/Skeleton';
 
 
 const Table = ({result}) => {
+
+
     return (
+       
         <>
-        {result.map((item, index) => (
+       { result && result.length > 0 ? (
+        result.map((item, index) => (
             <Link key={index} to={`/details/${item.id}`} className="Row">
               <img src={item.image} alt="Anime" className="Animeimage" />
               <div className="AnimeDetails">
@@ -28,8 +33,14 @@ const Table = ({result}) => {
                 </div>
               </div>
             </Link>
-            ))}
+            ))
+             ) : ( 
+            <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.900' }} animation="wave"  className="Table-Skeleton" />
+          )
+        }
             </>
+         
+        
     );
 }
 

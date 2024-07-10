@@ -14,7 +14,7 @@
 }
 .Slider-Skeleton{
   width: 100%;
-  height: 500px;
+  min-height: 700px;
 }
 .embla__container {
   display: flex;

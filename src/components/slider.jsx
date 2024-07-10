@@ -14,7 +14,6 @@ import Skeleton from '@mui/material/Skeleton';
 const Slider = () => {
   const [result, setResult] = useState([]);
   const [emblaRef] = useEmblaCarousel();
-  const [isrunning, setIsRunning] = useState(false);
   useEffect(() => {
     const Fetch = async () => {
       const data = await NewsetApi();
@@ -32,7 +31,7 @@ const Slider = () => {
 
   return (
     <div className="embla" ref={emblaRef}>
-      { isrunning ? (
+      {result && result.length > 0 ? (
         <div className="embla__container">
           {result.map((item, index) => (
             <div className="embla__slide" key={index}>
@@ -98,9 +97,8 @@ const Slider = () => {
       ) : (
         <Skeleton
           variant="rectangular"
-          sx={{ bgcolor: "#1e091a" }}
+          sx={{ bgcolor: "grey.900" }}
           animation="wave"
-          height={270}
           className="Slider-Skeleton"
         />
       )}

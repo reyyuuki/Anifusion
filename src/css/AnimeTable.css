@@ -11,6 +11,10 @@
     color: white;
     gap: 20px;
 }
+.Table-Skeleton{
+    width:90%;
+    min-height: 600px;
+}
 .Table{
     width:46%;
     background-color:var(--clr--primary-color);
@@ -22,6 +26,7 @@
     padding: 20px 0px;
     border-radius: 10px;
 }
+
 .Row{
     width:90%;
     height: 100px;

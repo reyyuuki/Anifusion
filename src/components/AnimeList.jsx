@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import "../css/AnimeList.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
@@ -28,7 +28,7 @@ const AnimeList = ({ result, name }) => {
           ))}
         </Swiper>
       ) : (
-        <Skeleton variant="rectangular" sx={{ bgcolor: '#1f0f24' }} animation="wave" height={270} className="Skeleton" />
+        <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.900' }} animation="wave" className="Skeleton" />
       )}
     </div>
   );
