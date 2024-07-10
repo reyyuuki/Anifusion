@@ -12,18 +12,18 @@ const Table = ({result}) => {
                 <div className="AnimeIcons">
                   <div className="ItemDiv">
                   <ion-icon name="tv-outline"></ion-icon>
-                    {item.type}
+                    {item.type || "??"}
                     </div>
                   <div className="ItemDiv">
                   <ion-icon name="calendar-outline"></ion-icon>
-                    {item.releaseDate}
+                    {item.releaseDate || "??"}
                   </div>
                   <div className="ItemDiv">
                   <ion-icon name="folder-open-outline"></ion-icon>
-                  {item.totalEpisodes}
+                  {item.totalEpisodes || "??"}
                   </div>
                   <div className="ItemDiv">
-                  <ion-icon name="star-outline"></ion-icon>8
+                  <ion-icon name="star-outline"></ion-icon>{item.rating/10 || "??"}
                   </div>
                 </div>
               </div>
