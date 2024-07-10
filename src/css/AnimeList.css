@@ -15,7 +15,7 @@
     font-size: 25px;
     font-weight: bold;
     padding: 0px 15px;
-    border-left:6px solid var(--clr--secondary-color);
+    border-left:6px solid deeppink;
     border-radius: 6px;
 }
 .TrendingSection {
