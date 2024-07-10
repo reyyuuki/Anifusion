@@ -30,7 +30,7 @@
     font-size: 35px;
     font-weight: bold;
     text-align: center;
-    background: linear-gradient(to right, #7e0bd0,#a80cf1, white,white);
+    background: linear-gradient(to right, #d00bb3fe,deeppink, white,white);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
