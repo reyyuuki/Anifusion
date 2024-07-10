@@ -8,8 +8,14 @@
     place-items: center;
     font-family: "Poppins";
 }
+.RecommendedSection{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .Description{
-    width:95%;
+    width:93%;
     min-height:90%;
     background-color:var(--clr--primary-color);
     border-radius: 20px;
