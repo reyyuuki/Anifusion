@@ -12,8 +12,6 @@ const AnimeList = ({ result, name }) => {
       <Swiper
       spaceBetween={23}
       slidesPerView={6}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
       className="TrendingSection"
     >
         {result.map((item, index) => (
