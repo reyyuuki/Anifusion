@@ -2,12 +2,16 @@
   --clr--primary-color: #302e2ec0;
 }
 
+.SliderContainer{
+  width:100%;
+  display: grid;
+  place-items: center;
+}
 .embla {
   height: 350px;
   overflow: hidden;
   width: 93%;
   position: relative;
-  left: 50px;
   top: 65px;
   border-radius: 10px;
   font-family: "Poppins";
@@ -70,6 +74,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  backdrop-filter: blur(10px);
 }
 .icon {
   display: flex;
@@ -87,6 +92,7 @@
   align-items: center;
   display: flex;
   gap: 20px;
+  backdrop-filter: blur(10px);
 }
 .btn {
   width: 155px;
@@ -103,4 +109,40 @@
 }
 p {
   font-size: 14px;
+}
+
+@media only screen  and (max-width: 768px) {
+
+  .embla{
+    height: 280px;
+    width: 95%;
+  }
+  .description{
+    display: none;
+  }
+  .sliderInfo{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: min-content;
+    margin-left: -20px;
+    gap: 5px;
+  }
+  .rightBox h1{
+    font-size: 18px;
+    
+  }
+  .rightBox{
+    height: 100px;
+    width: 80%;
+  }
+  .info{
+    height:30px;
+    margin-left: 30px;
+  }
+  .btn{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+  }
 }

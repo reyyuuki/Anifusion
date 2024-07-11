@@ -30,6 +30,7 @@ const Slider = () => {
  
 
   return (
+    <div className="SliderContainer">
     <div className="embla" ref={emblaRef}>
       {result && result.length > 0 ? (
         <div className="embla__container">
@@ -102,6 +103,7 @@ const Slider = () => {
           className="Slider-Skeleton"
         />
       )}
+    </div>
     </div>
   );
 };
