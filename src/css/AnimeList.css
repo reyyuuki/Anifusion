@@ -60,3 +60,14 @@
     min-height: 20%;
     width:100%;
 }
+@media only screen and (max-width: 768px){
+  .AnimeCard{
+    flex:0 0 28%;
+  }
+  .AnimeImage{
+    height: 170px;
+  }
+  .AnimeInfo{
+    font-size: 14px;
+  }
+}
