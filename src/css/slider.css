@@ -92,7 +92,6 @@
   align-items: center;
   display: flex;
   gap: 20px;
-  backdrop-filter: blur(10px);
 }
 .btn {
   width: 155px;
@@ -103,6 +102,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  backdrop-filter: blur(10px);
 }
 .iconStyles {
   font-size: 24px;
