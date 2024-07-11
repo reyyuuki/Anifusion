@@ -1,12 +1,10 @@
-
-
 .DescriptionContainer{
     width:100%;
-    min-height:200px;
     margin-top: 85px;
     display: grid;
     place-items: center;
     font-family: "Poppins";
+    padding: 10px;
 }
 .RecommendedSection{
     width:100%;
@@ -59,4 +57,12 @@
     width:93%;
     min-height: 400px;
     border-radius: 10px;
+}
+@media only screen and (max-width:768px){
+    .Description p{
+        font-size: 12px;
+    }
+    .DescriptionContainer{
+        padding: 0px;
+    }
 }
