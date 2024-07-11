@@ -82,13 +82,22 @@
         width:95%;
     }
     .Row{
-        height: 70px;
+        height: 90px;
         font-size: 12px;
+        padding: 0px;
+        border-radius: 5px;
     }
     .Top{
         font-size: 20px;
     }
     .Animeimage{
         width:18%;
+        border-radius: 5px;
+    }
+    .Titles{
+        text-align: left;
+    }
+    .AnimeIcons{
+        justify-content: flex-start;
     }
 }
