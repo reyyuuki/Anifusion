@@ -3,6 +3,7 @@ import "../css/AnimeList.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import Skeleton from '@mui/material/Skeleton';
+import { Autoplay } from "swiper/modules";
 
 const AnimeList = ({ result, name }) => {
   return (
@@ -11,13 +12,7 @@ const AnimeList = ({ result, name }) => {
       {result && result.length > 0 ? (
         <Swiper
           spaceBetween={23}
-          slidesPerView={6}
-          breakpoints={{
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-          }}
+          slidesPerView="auto"
           className="TrendingSection"
         >
           {result.map((item, index) => (
