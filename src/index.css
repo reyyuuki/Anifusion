@@ -14,20 +14,22 @@
   --clr--secondary-color: #1e1e24;
 }
 
-body[data-theme="dark"] {
-  --clr--primary-color: #0e0c0d;
-  --clr--background-color: #0e0c0d;
-  --clr--header-color: #0f0e18;
-  --clr--secondary-color: #1e1e24;
 
-  background-color: var(--clr--background-color);
-}
 
 body[data-theme="light"] {
   --clr--primary-color: #ffffff; 
   --clr--background-color: #ffffff;
   --clr--header-color: #f0f0f0;
   --clr--secondary-color: #e0e0e0;
+
+  background-color: var(--clr--background-color);
+}
+
+body[data-theme="dark"] {
+  --clr--primary-color: #0e0c0d;
+  --clr--background-color: #0e0c0d;
+  --clr--header-color: #0f0e18;
+  --clr--secondary-color: #1e1e24;
 
   background-color: var(--clr--background-color);
 }

@@ -5,15 +5,24 @@ import {
   faSnowflake,
   faShuffle,
   faSun,
+  faMoon,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState , useEffect} from "react";
 
 
 const Header = () => {
- 
+  const [Icon , setIcon] = useState(faSun)
+  useEffect(() => {
+    const currentTheme = document.body.getAttribute("data-theme") || "dark";
+    document.body.setAttribute("data-theme", currentTheme);
+  }, []);
+
   const toggleTheme = () => {
-    document.body.setAttribute("data-theme ","dark");
-    console.log("Theme-Change");
+    const Theme = document.body.getAttribute("data-theme");
+    const newTheme = Theme === "dark" ? "light" : "dark";
+    document.body.setAttribute("data-theme", newTheme);
+    setIcon(newTheme === "light" ? faMoon : faSun);
   };
 
   return (
@@ -35,7 +44,7 @@ const Header = () => {
       </div>
       <div className="box2">
         <div className="icons" onClick={() => toggleTheme()}>
-          <FontAwesomeIcon icon={faSun} />
+          <FontAwesomeIcon icon={Icon} />
         </div>
         <div className="icons">
           <FontAwesomeIcon icon={faUser} />
