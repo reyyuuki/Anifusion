@@ -62,10 +62,11 @@
 }
 @media only screen and (max-width: 768px){
   .AnimeCard{
-    flex:0 0 28%;
+    flex:0 0 29%;
   }
   .AnimeImage{
-    height: 170px;
+    height: 150px;
+    border-radius: 5px;
   }
   .AnimeInfo{
     font-size: 14px;
