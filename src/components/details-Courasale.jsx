@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import "../css/details-Courasale.css";
 
 const DetailsCourasale = ({ data }) => {
@@ -13,10 +14,10 @@ const DetailsCourasale = ({ data }) => {
         <h3>Status: {data.status || "N/A"}</h3>
         <h3>Genres: {data.genres.join(", ") || "N/A"}</h3>
       </div>
-      <a href={`/Streaming/${data.id}`} className="Details-watch-now">
+      <Link to={`/Streaming/${data.id}`} className="Details-watch-now">
         Watch now{" "} 
         <ion-icon name="play-circle" className="detailsicons"></ion-icon>
-      </a>
+      </Link>
     </div>
   );
 };
