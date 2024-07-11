@@ -19,6 +19,7 @@ const Details = () => {
         console.log(response);
         if (response) {
           setData(response);
+          window.scrollTo(0, 0);
         } else {
           console.log("Error fetching data");
         }
