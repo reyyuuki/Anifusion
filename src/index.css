@@ -9,10 +9,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-    --clr--primary-color: #3d1f47;
-    --clr--background-color:#1f0f24;
-    --clr--header-color:#0d0b27;
-    --clr--secondary-color:#5c2e6b;
+    --clr--primary-color: #0e0c0d;
+    --clr--background-color:#0e0c0d;
+    --clr--header-color:#0f0e18;
+    --clr--secondary-color:#1e1e24;
 }
 body{
   background-color: var(--clr--background-color);
