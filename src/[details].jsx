@@ -27,7 +27,7 @@ const Details = () => {
       }
     };
     Fetching();
-  }, []);
+  }, [id]);
 
   if (!data) {
     return (
