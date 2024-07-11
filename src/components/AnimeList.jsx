@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import Skeleton from '@mui/material/Skeleton';
 import { Autoplay } from "swiper/modules";
+import { Link } from "@mui/material";
 
 const AnimeList = ({ result, name }) => {
   return (
@@ -17,14 +18,14 @@ const AnimeList = ({ result, name }) => {
         >
           {result.map((item, index) => (
             <SwiperSlide key={index} className="AnimeCard">
-              <a href={`/details/${item.id}`} className="IdLink">
+              <Link to={`/details/${item.id}`} className="IdLink">
                 <img src={item.image} alt="anime Image" className="AnimeImage" />
                 <div className="AnimeInfo">
                   {(item.title.english || item.title.romaji).length > 20
                     ? (item.title.english || item.title.romaji).substring(0, 16) + "..."
                     : item.title.english || item.title.romaji}
                 </div>
-              </a>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
