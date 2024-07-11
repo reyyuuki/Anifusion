@@ -32,7 +32,7 @@ const AnimeTable = () => {
         <Table result={Popular} />
       </div>
       <div className="Table">
-        <h1 className="Top">Updated</h1>
+        <h1 className="Top">Upcoming</h1>
         <Table result={result} />
       </div>
     </div>
