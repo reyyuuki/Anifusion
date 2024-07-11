@@ -15,13 +15,11 @@ const CharacterList = ({ data, isEnglish }) => {
             />
             <div className="CharacterInfo">
               <div className="CharacterName">
-                <h4>Character</h4>
                 <h3>{item.name.full}</h3>
               </div>
               {voiceActor.image && (
                 <div className="CharacterName">
-                  <h4>Voice Actor</h4>
-                  <h3>{voiceActor.name.full}</h3>
+                  <h3 className="Voice-Actors">{"~"}{voiceActor.name.full}</h3>
                 </div>
               )}
             </div>

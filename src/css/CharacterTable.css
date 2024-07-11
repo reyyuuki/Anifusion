@@ -1,6 +1,5 @@
 .CharacterContainer{
     width:100%;
-    min-height:1300px;
     display: flex;
     justify-content: space-evenly;
     font-family: "Poppins";
@@ -20,7 +19,9 @@
     color:white;
     padding: 10px 0px;
 }
-
+.CharacterTable h1{
+    width: 95%;
+}
 .CharacterRow{
     width:93%;
     display: flex;
@@ -43,18 +44,44 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
 }
 .CharacterName{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-.CharacterName h4{
-    color:grey;
-    font-weight: 400;
-    font-size: 15px;
-}
-.CharacterName h3{
     color:white;
+}
+
+.Voice-Actors{
+    color: grey;
+    font-style: italic;
+    font-weight: 500;
+}
+@media only screen and (max-width:768px){
+    .CharacterContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .CharacterTable{
+        width:95%; 
+        height: min-content;
+    }
+    .CharacterTable h1{
+        width: 95%;
+        font-size: 20px;
+    }
+    .CharacterRow{
+        width:95%;
+        height: 50px;
+    }
+    .CharacterName{
+        font-size: 10px;
+    }
+    .CharacterImage{
+        width:12%;
+        height: 50px;
+        border-radius:50px;
+    }
 }
