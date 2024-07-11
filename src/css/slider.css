@@ -133,8 +133,10 @@ p {
     
   }
   .rightBox{
-    height: 100px;
-    width: 80%;
+    height: 80px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
   }
   .info{
     height:30px;
