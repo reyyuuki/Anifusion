@@ -75,5 +75,17 @@
     color:white;
 }
 @media only screen and (max-width: 768px){
-    
+    .TableContainer{
+        flex-direction: column;
+    }
+    .Table{
+        width:95%;
+    }
+    .Row{
+        height: 70px;
+        font-size: 12px;
+    }
+    .Top{
+        font-size: 20px;
+    }
 }
