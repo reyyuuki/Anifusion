@@ -2,7 +2,7 @@
 .TableContainer{
     width:100%;
     position: relative;
-    top:140px;
+    top:100px;
     display: flex;
     font-family: "Poppins";
     justify-content: center;
@@ -10,6 +10,7 @@
     padding: 20px 0px;
     color: white;
     gap: 20px;
+    transition: 1s ease;
 }
 .Table-Skeleton{
     width:90%;
