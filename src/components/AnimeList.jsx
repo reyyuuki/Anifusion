@@ -12,6 +12,12 @@ const AnimeList = ({ result, name }) => {
         <Swiper
           spaceBetween={23}
           slidesPerView={6}
+          breakpoints={{
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          }}
           className="TrendingSection"
         >
           {result.map((item, index) => (
