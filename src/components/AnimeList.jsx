@@ -11,7 +11,7 @@ const AnimeList = ({ result, name }) => {
       <h2 className="NewestText">{name}</h2>
       {result && result.length > 0 ? (
         <Swiper
-          spaceBetween={23}
+          spaceBetween={20}
           slidesPerView="auto"
           className="TrendingSection"
         >
