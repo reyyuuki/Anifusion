@@ -8,7 +8,14 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const Header = () => {
+ 
+  const toggleTheme = () => {
+    document.body.setAttribute("data-theme ","dark");
+    console.log("Theme-Change");
+  };
+
   return (
     <div className="header">
       <h1 className="Heading">YurAni </h1>
@@ -27,7 +34,7 @@ const Header = () => {
         </div>
       </div>
       <div className="box2">
-        <div className="icons">
+        <div className="icons" onClick={() => toggleTheme()}>
           <FontAwesomeIcon icon={faSun} />
         </div>
         <div className="icons">
