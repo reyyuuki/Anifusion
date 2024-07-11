@@ -84,5 +84,19 @@
 }
 
 @media only screen and (max-width:768px){
-    
+    .SearchBox{
+        display: none;
+    }
+    .header{
+        justify-content: center;
+        gap:10px;
+    }
+    .box1, .box2{
+        width: min-content;
+    }
+    .Heading{
+        font-size: 25px;
+        width:40%;
+        text-align: left;
+    }
 }
