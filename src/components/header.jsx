@@ -14,8 +14,7 @@ import { useState , useEffect} from "react";
 const Header = () => {
   const [Icon , setIcon] = useState(faSun)
   useEffect(() => {
-    const currentTheme = document.body.getAttribute("data-theme") || "dark";
-    document.body.setAttribute("data-theme", currentTheme);
+    document.body.setAttribute("data-theme", "dark");
   }, []);
 
   const toggleTheme = () => {
