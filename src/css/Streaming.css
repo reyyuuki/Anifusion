@@ -17,6 +17,7 @@
     background-color: var(--clr--background-color);
     position: relative;
     top:65px;
+    overflow: hidden;
 }
 
 .EpisodesWrapper{
@@ -77,4 +78,16 @@
 }
 .EpisodesRow:active{
     transform: scale(0.80);
+}
+
+@media only screen and (max-width: 768px){
+    .StreamingContainer{
+        flex-direction: column;
+        gap:10px;
+    }
+    .Player{
+        width:90%;
+        height: 100px;
+        margin-left: 0;
+    }
 }
