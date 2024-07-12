@@ -25,12 +25,12 @@
     font-weight: 700;
 }
 .InfoTitle{
-    color:white;
+    color:var(--clr--text-color);
     width:40%;
     display: flex;
 }
 .InfoValue{
-    color:white;
+    color:var(--clr--text-color);
     width:40%;
     display: flex;
     justify-content: end;

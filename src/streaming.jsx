@@ -1,4 +1,4 @@
-import Header from "./components/header";
+
 import {
   FetchById,
   FetchEpisodes,
@@ -8,7 +8,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./css/Streaming.css";
 import Loader from "./components/Loader";
-import "./css/Episodes.css";
 import "@vidstack/react/player/styles/default/theme.css";
 import "@vidstack/react/player/styles/default/layouts/video.css";
 import { MediaPlayer, MediaProvider } from "@vidstack/react";

@@ -16,7 +16,7 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    color:white;
+    color:var(--clr--text-color);
     padding: 10px 0px;
 }
 .CharacterTable h1{
@@ -51,7 +51,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color:white;
+    color:var(--clr--text-color);
 }
 
 .Voice-Actors{
