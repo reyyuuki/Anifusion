@@ -71,7 +71,7 @@ const AnimeInfo = ({ data, EpisodeData }) => {
       <div className="stream-table">
         <div className="stream-tableData">
         <h1>Related </h1>
-        <Table result={data.relations} className="stream-tableRow"/>
+        <Table result={data.relations} />
         </div>
       </div>
     </div>
