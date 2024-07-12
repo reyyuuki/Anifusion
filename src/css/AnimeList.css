@@ -5,7 +5,7 @@
     padding: 10px 20px;
     justify-content: space-evenly;
     gap: 30px;
-    color:white;
+    color:var(--clr--text-color);
     font-family: "Poppins";
     background-color:var(--clr--primary-color);
     border-radius: 10px;
@@ -35,7 +35,7 @@
 
 .IdLink {
   text-decoration: none;
-  color: white;
+  color: var(--clr--text-color);
 }
 .AnimeCard{
     display: flex;
