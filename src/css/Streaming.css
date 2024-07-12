@@ -86,6 +86,7 @@ body{
     .StreamingContainer{
         flex-direction: column;
         gap:10px;
+        top: 145px;
     }
     .Player{
         width:100%;
