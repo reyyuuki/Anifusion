@@ -94,7 +94,7 @@ body{
     }
     .EpisodesWrapper{
         width: 90%;
-        height: 400px;
+        min-height: 400px;
     }
     .EpisodesRow{
         height: 100px;
@@ -102,4 +102,5 @@ body{
     .EpisodesInfo p{
         font-size: 12px;
     }
+    
 }
