@@ -13,7 +13,7 @@
 }
 .EpisodesWrapper h1{
     font-size: 30px;
-    color:white;
+    color:var(--clr--text-color);
 }
 .EpisodesInfo p{
     font-size: 16px;
@@ -29,11 +29,11 @@
     background-color: var(--clr--secondary-color);
     border-radius: 10px;
     transition: 0.5s ease;
-    color:white;
+    color:var(--clr--text-color);
     gap: 10px;
 }
 .ActiveRow{
-    border: 1px solid white;
+    border: 1px solid black;
     transition: 0.5s ease;
     opacity: 0.5;
 }
@@ -55,7 +55,7 @@
 
 .EpisodesRow:hover{
     transform: scale(0.95);
-    background-color: #85138f;
+    background-color: rgba(78, 73, 73, 0.435);
 }
 .EpisodesRow:active{
     transform: scale(0.80);
