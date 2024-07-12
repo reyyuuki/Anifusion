@@ -18,13 +18,17 @@ const AnimeList = ({ result, name }) => {
           {result.map((item, index) => (
             <SwiperSlide key={index} className="AnimeCard">
               <Link to={`/details/${item.id}`} className="IdLink">
+              <div className="ImageContainer">
                 <img src={item.image} alt="anime Image" className="AnimeImage" />
                 <div className="Anime-Details">
+                  <div>
                   <p>{item.type}</p>
                   <ion-icon name="ellipse"></ion-icon>
-                  <p>{item.status}</p>
+                  <h4 className="Anime-Status">{item.status}</h4>
                   <ion-icon name="ellipse"></ion-icon>
                   <p>Ep {item.totalEpisodes}</p>
+                  </div>
+                </div>
                 </div>
                 <div className="AnimeInfo">
                   {(item.title.english || item.title.romaji).length > 20
