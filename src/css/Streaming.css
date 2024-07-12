@@ -61,7 +61,7 @@ body{
 }
 .EpisodeImage{
     object-fit: cover;
-    min-width:40%;
+    width:40%;
     height: 100%;
     border-radius: 10px;
 }
@@ -95,5 +95,8 @@ body{
     .EpisodesWrapper{
         width: 90%;
         height: 250px;
+    }
+    .EpisodesRow{
+        height: 100px;
     }
 }
