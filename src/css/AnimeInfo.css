@@ -141,4 +141,22 @@
         justify-content: center;
         align-items: center;
     }
+    .stream-Image{
+        width:150px;
+    }
+    .stream-Informations{
+        font-size: 12px;
+    }
+    .stream-status{
+        font-size: 10px;
+    }
+    .stream-status div p{
+        font-size: 10px;
+    }
+    #icon{
+        font-size: 16px;
+    }
+    .stream-Informations h2{
+        font-size: 16px;
+    }
 }
