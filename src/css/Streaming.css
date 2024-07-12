@@ -99,4 +99,7 @@ body{
     .EpisodesRow{
         height: 100px;
     }
+    .EpisodesInfo p{
+        font-size: 12px;
+    }
 }
