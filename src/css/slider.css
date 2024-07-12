@@ -76,15 +76,18 @@
   align-items: center;
   backdrop-filter: blur(5px);
 }
+
 .icon {
   display: flex;
   text-align: center;
   gap: 4px;
 }
+
 .iconStyle {
   font-size: 14px;
   margin-top: 3px;
 }
+
 .info {
   min-width: 40%;
   height: 40%;
@@ -93,6 +96,7 @@
   display: flex;
   gap: 20px;
 }
+
 .btn {
   width: 155px;
   height: 50px;
@@ -104,6 +108,7 @@
   align-items: center;
   backdrop-filter: blur(5px);
 }
+
 .iconStyles {
   font-size: 24px;
 }
@@ -115,6 +120,7 @@ p {
   .embla{
     height: 280px;
     width: 95%;
+    border-radius: 5px;
   }
   .description{
     display: none;
