@@ -122,4 +122,7 @@
   .NewestText {
     font-size: 20px;
   }
+  .ImageContainer {
+    height: 170px;
+  }
 }
