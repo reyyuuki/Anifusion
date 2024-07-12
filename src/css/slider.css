@@ -74,7 +74,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
 .icon {
   display: flex;
@@ -102,7 +102,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
 .iconStyles {
   font-size: 24px;
@@ -133,9 +133,9 @@ p {
     
   }
   .rightBox{
-    height: 80px;
+    height: 100px;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-bottom: 15px;
   }
   .info{
