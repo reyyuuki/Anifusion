@@ -34,8 +34,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.6;
 }
-.gradient {
+gradient {
   width: 100%;
   height: 400px;
   background: linear-gradient(
@@ -75,6 +76,7 @@
   justify-content: space-evenly;
   align-items: center;
   backdrop-filter: blur(5px);
+  opacity: 0.8;
 }
 .icon {
   display: flex;
