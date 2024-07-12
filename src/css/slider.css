@@ -54,7 +54,7 @@
   justify-content: space-between;
   display: flex;
   align-items: flex-end;
-  color: white;
+  color: var(--clr--text-color);
 }
 .rightBox {
   width: 40%;
@@ -112,7 +112,6 @@ p {
 }
 
 @media only screen  and (max-width: 768px) {
-
   .embla{
     height: 280px;
     width: 95%;
