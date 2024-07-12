@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useEmblaCarousel from "embla-carousel-react";
 import Skeleton from '@mui/material/Skeleton';
+import { Link } from "react-router-dom";
 const Slider = () => {
   const [result, setResult] = useState([]);
   const [emblaRef] = useEmblaCarousel();
@@ -76,20 +77,20 @@ const Slider = () => {
                   </div>
                 </div>
                 <div className="info">
-                  <div className="btn">
+                  <Link to={`/details/${item.id}`} className="btn">
                     <FontAwesomeIcon
                       icon={faCircleInfo}
                       className="iconStyles"
                     />
                     <p className="iconText">Details</p>
-                  </div>
-                  <div className="btn">
+                  </Link>
+                  <Link to={`/Streaming/${item.id}`} className="btn">
                     <FontAwesomeIcon
                       icon={faCirclePlay}
                       className="iconStyles"
                     />
                     <p className="iconText">Watch Now</p>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
