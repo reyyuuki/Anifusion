@@ -121,6 +121,15 @@ p {
   font-size: 14px;
   color:var(--clr--text-color);
 }
+.btn:hover{
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+  border: 1px solid white;
+}
+.btn:active{
+  transform: scale(0.90);
+  transition: 0.5s ease-in-out;
+}
 
 @media only screen  and (max-width: 768px) {
   .embla{

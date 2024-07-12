@@ -19,6 +19,13 @@ const AnimeList = ({ result, name }) => {
             <SwiperSlide key={index} className="AnimeCard">
               <Link to={`/details/${item.id}`} className="IdLink">
                 <img src={item.image} alt="anime Image" className="AnimeImage" />
+                <div className="Anime-Details">
+                  <p>{item.type}</p>
+                  <ion-icon name="ellipse"></ion-icon>
+                  <p>{item.status}</p>
+                  <ion-icon name="ellipse"></ion-icon>
+                  <p>Ep {item.totalEpisodes}</p>
+                </div>
                 <div className="AnimeInfo">
                   {(item.title.english || item.title.romaji).length > 20
                     ? (item.title.english || item.title.romaji).substring(0, 16) + "..."
