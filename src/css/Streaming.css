@@ -86,7 +86,6 @@ body{
     .StreamingContainer{
         flex-direction: column;
         gap:10px;
-        top: 145px;
     }
     .Player{
         width:100%;
@@ -95,7 +94,7 @@ body{
     }
     .EpisodesWrapper{
         width: 90%;
-        min-height: 400px;
+        height: 400px;
     }
     .EpisodesRow{
         height: 100px;
