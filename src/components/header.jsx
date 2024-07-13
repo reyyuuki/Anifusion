@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { FetchBySearch } from "./apiFetch";
-import { Link } from "react-router-dom";
+
 
 const Header = () => {
   const [Icon, setIcon] = useState(faSun);
@@ -38,6 +38,7 @@ const Header = () => {
     document.body.setAttribute("data-theme", newTheme);
     setIcon(newTheme === "light" ? faMoon : faSun);
   };
+  
   const Focused = () => {
     setFocused(!focused);
   };
