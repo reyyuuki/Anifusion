@@ -21,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: <Details/>,
+    errorElement:<Error/>,
   },
   {
     path:"/Streaming/:id",
