@@ -20,7 +20,6 @@ const Slider = () => {
       const data = await NewsetApi();
       if (data) {
         setResult(data);
-        console.log(data);
       } else {
         console.log("error fetching");
       }

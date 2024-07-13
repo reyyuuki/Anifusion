@@ -54,3 +54,9 @@ export const FetchEpisodesId = async  (episodeId) => {
         const result = await response.json();
         return result;
 }
+export const FetchBySearch = async  (name) => {
+        
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist/${name}`);
+        const result = await response.json();
+        return result.results;
+}
