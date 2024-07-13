@@ -20,7 +20,11 @@
     padding: 10px 0px;
 }
 .CharacterTable h1{
-    width: 95%;
+    width: 90%;
+    font-size: 25px;
+    border-left: 6px solid deeppink;
+    padding: 0px 10px;
+    border-radius: 6px;
 }
 .CharacterRow{
     width:93%;

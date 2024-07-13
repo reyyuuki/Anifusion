@@ -9,12 +9,14 @@ import {
 import Streaming from './streaming.jsx';
 import Details from './[details].jsx';
 import Header from './components/header.jsx';
+import Error from './components/Error.jsx';
+import NotFoundEpisodes from './components/notFoundEpisodes.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    errorElement: <div style={"font-size:40px"} ></div>
+    errorElement:<Error/>,
   },
   {
     path: "/details/:id",
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
   {
     path:"/Streaming/:id",
     element: <Streaming/>,
-    
+    errorElement:<NotFoundEpisodes/>,
   },
 ]);
 

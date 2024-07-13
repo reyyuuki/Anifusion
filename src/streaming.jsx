@@ -16,6 +16,7 @@ import {
   DefaultVideoLayout,
 } from "@vidstack/react/player/layouts/default";
 import AnimeInfo from "./components/AnimeInfo";
+import NotFoundEpisodes from "./components/notFoundEpisodes";
 
 const Streaming = () => {
   const { id } = useParams();
@@ -46,6 +47,9 @@ const Streaming = () => {
       } catch (error) {
         console.log("Error:", error);
       }
+      finally{
+        setLoadingData(false);
+      }
     };
 
     fetchData();
@@ -59,9 +63,10 @@ const Streaming = () => {
           if (streamLink) {
             setEpisodeData(streamLink);
           }
-          setLoadingData(false);
         } catch (error) {
           console.log("Error:", error);
+        }
+        finally{
           setLoadingData(false);
         }
       }
@@ -79,11 +84,14 @@ const Streaming = () => {
     }
   };
 
+ 
   return (
     <>
       {loadingData ? (
         <Loader />
       ) : (
+        <>
+        {AnimeData.episodes.length > 0 ? 
         <>
           <div className="StreamingContainer">
             {episodeData && (
@@ -129,6 +137,9 @@ const Streaming = () => {
             </div>
           </div>
           <AnimeInfo data={AnimeData} EpisodeData={currentEpisode}/>
+          </> :
+         < NotFoundEpisodes/>
+              }
         </>
       )}
     </>
