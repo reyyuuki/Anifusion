@@ -1,0 +1,14 @@
+
+.PageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("../assets/background_Home.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.PageContainer h1{
+    color: var(--clr--text-color);
+}
