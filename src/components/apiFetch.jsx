@@ -89,3 +89,19 @@ export const AiringManga = async  () => {
         return result.results;
 
 }
+
+export const MangaSearch = async  (name) => {
+
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist-manga/${name}`);
+        const result = await response.json();
+        return result.results;
+
+}
+
+export const MangaDetail = async  (id) => {
+
+        const response = await fetch(`https://consumet-api-two-nu.vercel.app/meta/anilist-manga/info/${id}?provider=mangadex`);
+        const result = await response.json();
+        return result.results;
+
+}

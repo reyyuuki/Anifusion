@@ -12,3 +12,18 @@
 .PageContainer h1{
     color: var(--clr--text-color);
 }
+.LinkButton{
+    width: 120px;
+    height: 30px;
+    padding: 10px;
+    background-color: var(--clr--secondary-color);
+    color: var(--clr--text-color);
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+.LinkButton:hover{
+    background-color: var(--clr--primary-color);
+}

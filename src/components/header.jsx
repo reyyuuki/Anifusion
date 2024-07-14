@@ -8,18 +8,19 @@ import {
   faMoon,
   faUser,
   faXmark,
-  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
-import { FetchBySearch } from "./apiFetch";
+import { FetchBySearch, MangaSearch } from "./apiFetch";
+import { useLocation } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({isManga}) => {
   const [Icon, setIcon] = useState(faSun);
   const [closeIcon, setCloseIcon] = useState(faSnowflake);
   const [name, setName] = useState("");
   const [animeList, setAnimeList] = useState([]);
   const [focused, setFocused] = useState(false);
-
+  const [isManga, setIsManga] = useState(false);
+  const location = useLocation();
   const handleSearch = (e) => {
     setName(e.target.value);
   };
@@ -27,12 +28,25 @@ const Header = () => {
   useEffect(() => {
     document.body.setAttribute("data-theme", "dark");
     const SearchAnime = async () => {
-      const response = await FetchBySearch(name);
-      setAnimeList(response);
-      console.log(response);
+     
+      if (isManga) {
+        const manga = await MangaSearch(name);
+        if (manga) {
+          setAnimeList(manga);
+        } else {
+          console.log('Manga not found');
+        }
+      } else {
+        const anime = await FetchBySearch(name);
+        if (anime) {
+          setAnimeList(anime);
+        } else {
+          console.log('Anime not found');
+        }
+      }
     };
     SearchAnime();
-  }, [name]);
+  }, [name, location.pathname]);
 
   const toggleTheme = () => {
     const Theme = document.body.getAttribute("data-theme");
@@ -59,7 +73,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
             <input
               type="text"
-              placeholder="Search Anime"
+              placeholder={isManga ? "Search Manga" : "Search Anime"}
               className="Search"
               onClick={() => Focused()}
               onChange={handleSearch}

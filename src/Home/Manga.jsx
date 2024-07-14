@@ -1,16 +1,16 @@
-import AnimeContainer from "./components/AnimeContainer";
-import Slider from "./components/slider";
-import AnimeTable from "./components/AnimeTable";
-import "./index.css";
+import AnimeContainer from "../components/AnimeContainer";
+import Slider from "../components/slider";
+import AnimeTable from "../components/AnimeTable";
+import "../index.css";
 import {
   MangaApi,
   TrendingManga,
   PopularManga,
   AiringManga,
-} from "./components/apiFetch";
+} from "../components/apiFetch";
 import { useEffect, useState } from "react";
 
-function App() {
+const Manga = () => {
   const [Newest, setNewset] = useState([]);
   const [Popular, setPopular] = useState([]);
   const [TrendingAnime, setTrendingAnime] = useState([]);
@@ -53,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default Manga;

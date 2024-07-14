@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./css/details.css";
 import Skeleton from "@mui/material/Skeleton";
 import InfoElement from "./components/infoElement";
 import DetailsCourasale from "./components/details-Courasale";
 import CharacterTable from "./components/CharacterTable";
 import AnimeList from "./components/AnimeList";
-import { FetchById } from "./components/apiFetch";
+import { FetchById, MangaDetail } from "./components/apiFetch";
 
-const Details = () => {
+const MangaDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const location = useLocation(); 
 
   useEffect(() => {
     const Fetching = async () => {
       try {
-        const response = await FetchById(id);
-        console.log(response);
-        if (response) {
-          setData(response);
-          window.scrollTo(0, 0);
-        } else {
-          console.log("Error fetching data");
-        }
+        const Manga = await MangaDetail(id);
+        console.log(Manga);
+          setData(Manga);
       } catch (error) {
         console.log("Error:", error);
       }
@@ -69,21 +65,15 @@ const Details = () => {
 
   return (
     <>
-      <DetailsCourasale data={data} isManga={false}/>
+      <DetailsCourasale data={data} isManga={true}/>
       <div className="DescriptionContainer">
         <div className="Description">
         <p>{data.description ? data.description.replace(/<\/?[^>]+(>|$)/g, "") : "N/A"}</p>
         </div>
       </div>
-      <InfoElement data={data} />
-      <div className="RecommendedSection">
-        <AnimeList result={data.recommendations} name={"Recommended"} />
-      </div>
-      {data.characters && data.characters.length > 0 && (
-        <CharacterTable data={data} />
-      )}
+      
     </>
   );
 };
 
-export default Details;
+export default MangaDetails;

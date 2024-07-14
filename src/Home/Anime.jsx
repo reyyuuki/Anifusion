@@ -1,16 +1,16 @@
-import AnimeContainer from "./components/AnimeContainer";
-import Slider from "./components/slider";
-import AnimeTable from "./components/AnimeTable";
-import "./index.css";
+import AnimeContainer from "../components/AnimeContainer";
+import Slider from "../components/slider";
+import AnimeTable from "../components/AnimeTable";
+import "../index.css";
 import {
   NewsetApi,
   PopularApi,
   TrendingApi,
   TopAiring,
-} from "./components/apiFetch";
+} from "../components/apiFetch";
 import { useEffect, useState } from "react";
 
-function App() {
+const Anime = ()  => {
   const [Newest, setNewset] = useState([]);
   const [Popular, setPopular] = useState([]);
   const [TrendingAnime, setTrendingAnime] = useState([]);
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <Slider result={TopRated} isManga={isManga} />
+      <Slider result={Newest} isManga={false} />
       <AnimeContainer
         Newest={Newest}
         TrendingAnime={TrendingAnime}
@@ -50,4 +50,4 @@ function App() {
   );
 }
 
-export default App;
+export default Anime;
