@@ -9,6 +9,7 @@ import {
   TopAiring,
 } from "../components/apiFetch";
 import { useEffect, useState } from "react";
+import Header from "../components/header";
 
 const Anime = ()  => {
   const [Newest, setNewset] = useState([]);
@@ -38,6 +39,7 @@ const Anime = ()  => {
 
   return (
     <>
+    <Header isManga={false}/>
       <Slider result={Newest} isManga={false} />
       <AnimeContainer
         Newest={Newest}

@@ -86,7 +86,7 @@ const Slider = ({ result, isManga }) => {
                   </div>
                   <div className="info">
 
-                    <Link to= { isManga ? `/MangaDeatils/${item.id}` : `/details/${item.id}`} className="btn">
+                    <Link to= { isManga ? `/MangaDetails/${item.id}` : `/details/${item.id}`} className="btn">
                       <FontAwesomeIcon
                         icon={faCircleInfo}
                         className="iconStyles"

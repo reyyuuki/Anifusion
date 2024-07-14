@@ -13,18 +13,16 @@ import Manga from './Home/Manga.jsx';
 import MangaDetails from './[MangaDetails].jsx';
 
 const MainApp = () => (
-  <div>
-    <Header />
+  
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/Home/Anime" element={<Anime />} />
       <Route path="/details/:id" element={<Details />} />
       <Route path="/Streaming/:id" element={<Streaming />} errorElement={<NotFoundEpisodes/>} />
-      <Route path="/Home/Manga" element={<Manga />} />
+      <Route path="/Home/Manga" element={<Manga />}/>
       <Route path="/MangaDetails/:id" element={<MangaDetails />} />      
       <Route path="*" element={<Error />} />
     </Routes>
-  </div>
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(

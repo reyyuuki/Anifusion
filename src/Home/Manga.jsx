@@ -9,6 +9,7 @@ import {
   AiringManga,
 } from "../components/apiFetch";
 import { useEffect, useState } from "react";
+import Header from "../components/header";
 
 const Manga = () => {
   const [Newest, setNewset] = useState([]);
@@ -18,39 +19,36 @@ const Manga = () => {
 
   useEffect(() => {
     const Fetch = async () => {
-        try{
-      const MangaData = await MangaApi();
-      const MangaTrending = await TrendingManga();
-      const MangaPopularFetch = await PopularManga();
-      const MangaTopRated = await AiringManga();
+      try {
+        const MangaData = await MangaApi();
+        const MangaTrending = await TrendingManga();
+        const MangaPopularFetch = await PopularManga();
+        const MangaTopRated = await AiringManga();
 
-     
         setNewset(MangaData);
         setTrendingAnime(MangaTrending);
         setPopular(MangaPopularFetch);
         setTopRated(MangaTopRated);
-      }
-      catch{
-       console.log("Fetching manga data failed ");
+      } catch {
+        console.log("Fetching manga data failed ");
       }
     };
     Fetch();
   }, []);
 
   return (
-
-    
     <>
-      <Slider result={TopRated} isManga={true}/>
+      <Header isManga={true} />
+      <Slider result={TopRated} isManga={true} />
       <AnimeContainer
         Newest={Newest}
         TrendingAnime={TrendingAnime}
         Popular={Popular}
         TopRated={TopRated}
       />
-      <AnimeTable result={Newest} Popular={Popular} isManga={true}/>
+      <AnimeTable result={Newest} Popular={Popular} isManga={true} />
     </>
   );
-}
+};
 
 export default Manga;

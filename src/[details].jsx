@@ -7,6 +7,7 @@ import DetailsCourasale from "./components/details-Courasale";
 import CharacterTable from "./components/CharacterTable";
 import AnimeList from "./components/AnimeList";
 import { FetchById } from "./components/apiFetch";
+import Header from "./components/header";
 
 const Details = () => {
   const { id } = useParams();
@@ -69,6 +70,7 @@ const Details = () => {
 
   return (
     <>
+    <Header isManga={false}/>
       <DetailsCourasale data={data} isManga={false}/>
       <div className="DescriptionContainer">
         <div className="Description">

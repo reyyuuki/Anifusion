@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./css/details.css";
 import Skeleton from "@mui/material/Skeleton";
 import InfoElement from "./components/infoElement";
@@ -7,18 +7,24 @@ import DetailsCourasale from "./components/details-Courasale";
 import CharacterTable from "./components/CharacterTable";
 import AnimeList from "./components/AnimeList";
 import { FetchById, MangaDetail } from "./components/apiFetch";
+import Header from "./components/header";
 
 const MangaDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const location = useLocation(); 
+
 
   useEffect(() => {
     const Fetching = async () => {
       try {
-        const Manga = await MangaDetail(id);
-        console.log(Manga);
-          setData(Manga);
+        const response = await MangaDetail(id);
+        console.log(response);
+        if (response) {
+          setData(response);
+          window.scrollTo(0, 0);
+        } else {
+          console.log("Error fetching data");
+        }
       } catch (error) {
         console.log("Error:", error);
       }
@@ -65,6 +71,7 @@ const MangaDetails = () => {
 
   return (
     <>
+    <Header isManga={true}/>
       <DetailsCourasale data={data} isManga={true}/>
       <div className="DescriptionContainer">
         <div className="Description">

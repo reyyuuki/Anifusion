@@ -11,16 +11,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { FetchBySearch, MangaSearch } from "./apiFetch";
-import { useLocation } from 'react-router-dom';
+
 
 const Header = ({isManga}) => {
+  
   const [Icon, setIcon] = useState(faSun);
   const [closeIcon, setCloseIcon] = useState(faSnowflake);
   const [name, setName] = useState("");
   const [animeList, setAnimeList] = useState([]);
   const [focused, setFocused] = useState(false);
-  const [isManga, setIsManga] = useState(false);
-  const location = useLocation();
+  
   const handleSearch = (e) => {
     setName(e.target.value);
   };
@@ -46,7 +46,7 @@ const Header = ({isManga}) => {
       }
     };
     SearchAnime();
-  }, [name, location.pathname]);
+  }, [name]);
 
   const toggleTheme = () => {
     const Theme = document.body.getAttribute("data-theme");
