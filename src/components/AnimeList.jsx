@@ -5,7 +5,7 @@ import 'swiper/css';
 import Skeleton from '@mui/material/Skeleton';
 import { Link } from "react-router-dom";
 
-const AnimeList = ({ result, name }) => {
+const AnimeList = ({ result, name, isManga }) => {
   return (
     <div className="RecentlyUpdated">
       <h2 className="NewestText">{name}</h2>
@@ -17,7 +17,7 @@ const AnimeList = ({ result, name }) => {
         >
           {result.map((item, index) => (
             <SwiperSlide key={index} className="AnimeCard">
-              <Link to={`/details/${item.id}`} className="IdLink">
+              <Link to={isManga ? `/MangaDetails/${item.id}` : `/details/${item.id}`} className="IdLink">
               <div className="ImageContainer">
                 <img src={item.image} alt="anime Image" className="AnimeImage" />
                 <div className="Anime-Details">

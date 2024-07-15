@@ -45,6 +45,7 @@ const Manga = () => {
         TrendingAnime={TrendingAnime}
         Popular={Popular}
         TopRated={TopRated}
+        isManga={true}
       />
       <AnimeTable result={Newest} Popular={Popular} isManga={true} />
     </>

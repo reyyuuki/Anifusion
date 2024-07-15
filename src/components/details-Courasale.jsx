@@ -10,14 +10,14 @@ const DetailsCourasale = ({ data, isManga }) => {
         <img src={data.image} alt="Anime Image" className="Details-AnimeCard" />
         <h1 style={{ color: data.color }}>{data.title.english}</h1>
         {isManga ? (
-          <h3>Chapters: {data.totalChapters || "N/A"}</h3>
+          <h3>Chapters: {data.chapters.length || "N/A"}</h3>
         ) : (
           <h3>Episodes: {data.totalEpisodes || "N/A"}</h3>
         )}
         <h3>Status: {data.status || "N/A"}</h3>
         <h3>Genres: {data.genres.join(", ") || "N/A"}</h3>
       </div>
-      <Link to={ isManga ? `/ReadingManga/${data.chapters[0].id}` : `/Streaming/${data.id}`} className="Details-watch-now">
+      <Link to={ isManga ? `/ReadingManga/${data.id}` : `/Streaming/${data.id}`} className="Details-watch-now">
       {isManga ? "Read Now" : "Watch Now"}
         <ion-icon name="play-circle" className="detailsicons"></ion-icon>
       </Link>
