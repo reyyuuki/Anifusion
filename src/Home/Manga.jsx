@@ -38,7 +38,7 @@ const Manga = () => {
 
   return (
     <>
-      <Header isManga={true} />
+      
       <Slider result={TopRated} isManga={true} />
       <AnimeContainer
         Newest={Newest}

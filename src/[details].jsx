@@ -70,7 +70,6 @@ const Details = () => {
 
   return (
     <>
-    <Header isManga={false}/>
       <DetailsCourasale data={data} isManga={false}/>
       <div className="DescriptionContainer">
         <div className="Description">

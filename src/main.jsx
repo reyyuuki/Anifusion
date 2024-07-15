@@ -14,7 +14,8 @@ import MangaDetails from './[MangaDetails].jsx';
 import Reading from './Reading.jsx';
 
 const MainApp = () => (
-  
+  <div>
+    <Header />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/Home/Anime" element={<Anime />} />
@@ -22,9 +23,10 @@ const MainApp = () => (
       <Route path="/Streaming/:id" element={<Streaming />} errorElement={<NotFoundEpisodes/>} />
       <Route path="/Home/Manga" element={<Manga />}/>
       <Route path="/MangaDetails/:id" element={<MangaDetails />} />
-      <Route path="/Readings/:id" element={<Reading/>}/>      
+      <Route path="/ReadingManga/:id" element={<Reading/>}/>      
       <Route path="*" element={<Error />} />
     </Routes>
+    </div>
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(

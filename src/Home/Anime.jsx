@@ -25,11 +25,18 @@ const Anime = ()  => {
         const AnimeTrending = await TrendingApi();
         const AnimePopularFetch = await PopularApi();
         const AnimeTopRated = await TopAiring();
-
-        setNewset(AnimeData);
+        if(AnimeData){
+          setNewset(AnimeData);
+        }
+        if(AnimeTrending){
         setTrendingAnime(AnimeTrending);
+        }
+        if(AnimePopularFetch){
         setPopular(AnimePopularFetch);
+        }
+        if(AnimeTopRated){
         setTopRated(AnimeTopRated);
+        }
       } catch {
         console.log("Fetching anime data failed ");
       }
@@ -39,7 +46,6 @@ const Anime = ()  => {
 
   return (
     <>
-    <Header isManga={false}/>
       <Slider result={Newest} isManga={false} />
       <AnimeContainer
         Newest={Newest}

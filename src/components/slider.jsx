@@ -93,7 +93,7 @@ const Slider = ({ result, isManga }) => {
                       />
                       <p className="iconText">Details</p>
                     </Link>
-                    <Link to={`/Streaming/${item.id}`} className="btn">
+                    <Link to={ isManga ? `/ReadingManga/${item.id}` : `  /Streaming/${item.id}`} className="btn" >
                       <FontAwesomeIcon
                         icon={faCirclePlay}
                         className="iconStyles"

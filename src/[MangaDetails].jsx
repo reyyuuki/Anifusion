@@ -72,7 +72,7 @@ const MangaDetails = () => {
 
   return (
     <>
-    <Header isManga={true}/>
+
       <DetailsCourasale data={data} isManga={true}/>
       <div className="DescriptionContainer">
         <div className="Description">
