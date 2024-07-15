@@ -11,6 +11,7 @@ import NotFoundEpisodes from './components/notFoundEpisodes.jsx';
 import Anime from './Home/Anime.jsx';
 import Manga from './Home/Manga.jsx';
 import MangaDetails from './[MangaDetails].jsx';
+import Reading from './Reading.jsx';
 
 const MainApp = () => (
   
@@ -20,7 +21,8 @@ const MainApp = () => (
       <Route path="/details/:id" element={<Details />} />
       <Route path="/Streaming/:id" element={<Streaming />} errorElement={<NotFoundEpisodes/>} />
       <Route path="/Home/Manga" element={<Manga />}/>
-      <Route path="/MangaDetails/:id" element={<MangaDetails />} />      
+      <Route path="/MangaDetails/:id" element={<MangaDetails />} />
+      <Route path="/Readings/:id" element={<Reading/>}/>      
       <Route path="*" element={<Error />} />
     </Routes>
 );

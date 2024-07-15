@@ -98,7 +98,7 @@ const Slider = ({ result, isManga }) => {
                         icon={faCirclePlay}
                         className="iconStyles"
                       />
-                      <p className="iconText">Watch Now</p>
+                      <p className="iconText">{isManga ? "Read Now" : "Watch Now"}</p>
                     </Link>
                   </div>
                 </div>

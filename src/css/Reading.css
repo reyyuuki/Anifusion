@@ -1,0 +1,11 @@
+
+.MangaChapters{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    background-color: red;
+}
+.MangaChapters img{
+    object-fit: cover;
+}

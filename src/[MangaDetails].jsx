@@ -12,7 +12,7 @@ import Header from "./components/header";
 const MangaDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-
+  const [chapterId, setChapterId] = useState('');
 
   useEffect(() => {
     const Fetching = async () => {
@@ -21,6 +21,7 @@ const MangaDetails = () => {
         console.log(response);
         if (response) {
           setData(response);
+          setChapterId(response.chapters[0].chapterId);
           window.scrollTo(0, 0);
         } else {
           console.log("Error fetching data");

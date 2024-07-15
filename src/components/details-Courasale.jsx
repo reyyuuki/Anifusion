@@ -17,8 +17,8 @@ const DetailsCourasale = ({ data, isManga }) => {
         <h3>Status: {data.status || "N/A"}</h3>
         <h3>Genres: {data.genres.join(", ") || "N/A"}</h3>
       </div>
-      <Link to={`/Streaming/${data.id}`} className="Details-watch-now">
-        Watch now{" "}
+      <Link to={ isManga ? `/Readings/${data.chapters[0].id}` : `/Streaming/${data.id}`} className="Details-watch-now">
+      {isManga ? "Read Now" : "Watch Now"}
         <ion-icon name="play-circle" className="detailsicons"></ion-icon>
       </Link>
     </div>
