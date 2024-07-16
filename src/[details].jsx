@@ -76,7 +76,7 @@ const Details = () => {
         <p>{data.description ? data.description.replace(/<\/?[^>]+(>|$)/g, "") : "N/A"}</p>
         </div>
       </div>
-      <InfoElement data={data} />
+      <InfoElement data={data} isManga={false} />
       <div className="RecommendedSection">
         <AnimeList result={data.recommendations} name={"Recommended"} />
       </div>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "../css/infoElement.css";
+import { Link } from "react-router-dom";
 
-const InfoElement = ({ data }) => {
+const InfoElement = ({ data , isManga}) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [FilterChapters, setFilterChapters] = useState([]);
 
   useEffect(() => {
     const getMonthName = (monthNumber) => {
@@ -35,10 +37,30 @@ const InfoElement = ({ data }) => {
     const Startday = data.startDate.day;
     const Startyear = data.startDate.year;
     setStartDate(`${Startday} ${startMonth}, ${Startyear}`);
+    if(data && data.chapters){
+      const FilterData = data.chapters.filter(chapter => chapter.pages > 0);
+      console.log(FilterData,FilterData[0].chapterNumber);
+      setFilterChapters(FilterData);
+    }
+    
   }, []);
 
   return (
     <div className="InfoContainer">
+      {isManga ? 
+      <div className="ChapterContainer">
+        <h1>Chapters</h1> 
+        <div className="ChapterWrapper">
+      {FilterChapters && FilterChapters.length > 0 && FilterChapters.map((item, index) =>{
+        return (
+          <Link to={`/ReadingManga/${itemid}`} className="ChapterBtn" key={index}>
+            {item.chapterNumber}
+          </Link>
+        );
+      })}
+      </div>
+      </div> :
+    
       <div className="InfoTable">
         <div className="InfoRow">
           <div className="InfoTitle">Mean Score</div>
@@ -142,6 +164,7 @@ const InfoElement = ({ data }) => {
           <div className="InfoValue">{endDate}</div>
         </div>
       </div>
+}
     </div>
   );
 };

@@ -6,6 +6,43 @@
     align-items: center;
     gap:10px;
     font-family: "Poppins";
+    
+}
+.ChapterContainer{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: 1s ease;
+}
+.ChapterContainer h1{
+    width: 88%;
+    color:var(--clr--text-color);
+}
+.ChapterWrapper{
+    width:88%;
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:var(--clr--primary-color);
+}
+.ChapterBtn{
+    width:60px;
+    height:60px;
+    border-radius: 50px;
+    background-color: var(--clr--secondary-color);
+    color:var(--clr--text-color);
+    display: grid;
+    place-items: center;
+    font-family: "Kalam";
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+.ChapterBtn:hover{
+    background-color: rgba(128, 128, 128, 0.718); 
+    transition: all 0.3s ease-in-out;  
 }
 .InfoTable{
     width: 93%;

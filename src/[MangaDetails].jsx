@@ -79,7 +79,7 @@ const MangaDetails = () => {
         <p>{data.description ? data.description.replace(/<\/?[^>]+(>|$)/g, "") : "N/A"}</p>
         </div>
       </div>
-      
+      <InfoElement data={data} isManga={true}/>
     </>
   );
 };
