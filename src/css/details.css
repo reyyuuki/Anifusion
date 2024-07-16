@@ -21,6 +21,7 @@
     display: grid;
     place-items: center;
     color:var(--clr--text-color);
+    box-shadow:inset 0px 0px 1px;
 }
 .Description p{
     padding: 10px;

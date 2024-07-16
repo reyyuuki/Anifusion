@@ -6,11 +6,11 @@ import "./css/Reading.css";
 
 const Reading = () => {
   const { id } = useParams();
-  const [chapterImage, setChapterImage] = useState();
-  const [MangaData, setMangaData] = useState();
-  const [NextChapter, setNextChapter] = useState();
-  const [ChapterId, setChapterId] = useState();
-  const [count , setCount] = useState(0);
+  const [chapterImage, setChapterImage] = useState([]);
+  const [MangaData, setMangaData] = useState(null);
+  const [ChapterId, setChapterId] = useState('');
+  const [FilterChapters, setFilterChapters] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const Fetching = async () => {
@@ -20,55 +20,61 @@ const Reading = () => {
           setMangaData(data);
           if (data.chapters && data.chapters.length > 0) {
             setChapterId(data.chapters[0].id);
-            console.log(ChapterId);
+            setFilterChapters(data.chapters.filter(chapter => chapter.pages > 0 ));
+            console.log(FilterChapters);
+            console.log(data);
           }
-        }
-        else{
+        } else {
           console.log("Error fetching data chapter");
         }
       } catch (error) {
         console.log("Error fetching data:", error);
       }
     };
-    
+
     Fetching();
   }, [id]);
 
   useEffect(() => {
     const Chapter = async () => {
-      if(ChapterId){
-    try {
-        const data = await MangaChapters(ChapterId);
-        if (data) {
-          setChapterImage(data);
-          console.log(chapterImage);
+      
+        try {
+          if (ChapterId) {
+          const data = await MangaChapters(ChapterId);
+          if (data) {
+            setChapterImage(data);
+            console.log(ChapterId);
+          }
         }
-      } catch (error){
-        console.log("Error fetching data:", error);
-      }
-    }
-    }
+        } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+    };
     Chapter();
-  },[ChapterId]);
-  
+  }, [ChapterId]);
+
   const handleNextChapter = () => {
-    setCount(c => c + 1);
-    setChapterId(MangaData.chapters[count + 1].id);
-    console.log(count);
+    setCount((c) => c + 1);
+    if(FilterChapters.length > 0){
+      setChapterId(FilterChapters[count + 1].id); 
+    }
+    
   };
-  
+
   return (
     <>
       <Header isManga={true} />
       <div className="MangaChapters">
-        {chapterImage &&
+        {ChapterId && chapterImage &&
           chapterImage.length > 0 &&
           chapterImage.map((item, index) => (
             <img src={item.img} alt="MangaChapterImage" key={index} />
           ))}
       </div>
       <div className="Reading-Btn-Container">
-        <div className="NextBtn" onClick={() => handleNextChapter()} >Next Chapter</div>
+        <div className="NextBtn" onClick={() => handleNextChapter()}>
+          Next Chapter
+        </div>
       </div>
     </>
   );

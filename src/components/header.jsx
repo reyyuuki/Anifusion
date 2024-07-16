@@ -54,7 +54,7 @@ const Header = () => {
       }
     };
     SearchAnime();
-  }, [name]);
+  }, [name, location.pathname]);
 
   const toggleTheme = () => {
     const Theme = document.body.getAttribute("data-theme");
