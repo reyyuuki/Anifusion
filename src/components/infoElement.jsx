@@ -53,7 +53,7 @@ const InfoElement = ({ data , isManga}) => {
         <div className="ChapterWrapper">
       {FilterChapters && FilterChapters.length > 0 && FilterChapters.map((item, index) =>{
         return (
-          <Link to={`/ReadingManga/${itemid}`} className="ChapterBtn" key={index}>
+          <Link to={`/ReadingManga/${data.id}/${item.id}`} className="ChapterBtn" key={index}>
             {item.chapterNumber}
           </Link>
         );

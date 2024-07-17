@@ -5,7 +5,7 @@ import { MangaChapters, MangaDetail } from "./components/apiFetch";
 import "./css/Reading.css";
 
 const Reading = () => {
-  const { id } = useParams();
+  const { id, chapter } = useParams();
   const [chapterImage, setChapterImage] = useState([]);
   const [MangaData, setMangaData] = useState(null);
   const [ChapterId, setChapterId] = useState('');
@@ -19,10 +19,16 @@ const Reading = () => {
         if (data) {
           setMangaData(data);
           if (data.chapters && data.chapters.length > 0) {
-            setChapterId(data.chapters[0].id);
-            setFilterChapters(data.chapters.filter(chapter => chapter.pages > 0 ));
-            console.log(FilterChapters);
-            console.log(data);
+            if(chapter){
+              setChapterId(chapter);
+              const index = data.chapters.findIndex(item => item.id === chapter);
+              setFilterChapters(data.chapters.slice(index));
+              setCount(index);
+            }
+            else{
+              setChapterId(data.chapters[0].id);
+              setFilterChapters(data.chapters.filter(chapter => chapter.pages > 0 ));
+            }
           }
         } else {
           console.log("Error fetching data chapter");
