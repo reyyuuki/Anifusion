@@ -113,3 +113,29 @@ export const MangaChapters = async  (id) => {
         return result;
 
 }
+
+export const AniWatchIdApi = async  (title) => {
+
+        const response = await fetch(`https://aniwatch-ryan.vercel.app/anime/search?q=${title}`);
+        const result = await response.json();
+        const FindName = result.animes.find(find => find.name === title);
+        return FindName.id;
+
+}
+
+export const AniWatchEpisode = async  (name,title) => {
+
+        const response = await fetch(`https://aniwatch-ryan.vercel.app/anime/episodes/${name}`);
+        const result = await response.json();
+        const filter = result.episodes.find(item => item.title === title);
+        return filter.episodeId;
+        
+}
+
+export const AniWatchSteam = async  (episodeId) => {
+
+        const response = await fetch(`https://aniwatch-ryan.vercel.app/anime/episode-srcs?id=${episodeId}`);
+        const result = await response.json();
+        return result;
+
+}

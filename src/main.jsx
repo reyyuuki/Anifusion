@@ -20,7 +20,7 @@ const MainApp = () => (
       <Route path="/" element={<App />} />
       <Route path="/Home/Anime" element={<Anime />} />
       <Route path="/details/:id" element={<Details />} />
-      <Route path="/Streaming/:id" element={<Streaming />} errorElement={<NotFoundEpisodes/>} />
+      <Route path="/Streaming/:id/:name?" element={<Streaming />}  />
       <Route path="/Home/Manga" element={<Manga />}/>
       <Route path="/MangaDetails/:id" element={<MangaDetails />} />
       <Route path="/ReadingManga/:id/:chapter?" element={<Reading/>}/>      

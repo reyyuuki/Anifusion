@@ -22,6 +22,7 @@ const Header = () => {
   const [animeList, setAnimeList] = useState([]);
   const [focused, setFocused] = useState(false);
   const [isManga, setIsManga] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const location = useLocation();
   
   const handleSearch = (e) => {
@@ -29,7 +30,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", "dark");
     const SearchAnime = async () => {
       if(location.pathname.includes("Manga")){
         setIsManga(true);
@@ -41,27 +41,21 @@ const Header = () => {
         const manga = await MangaSearch(name);
         if (manga) {
           setAnimeList(manga);
-        } else {
-          console.log('Manga not found');
-        }
+        } 
       } else {
         const anime = await FetchBySearch(name);
         if (anime) {
           setAnimeList(anime);
-        } else {
-          console.log('Anime not found');
         }
       }
     };
     SearchAnime();
   }, [name, location.pathname]);
 
-  const toggleTheme = () => {
-    const Theme = document.body.getAttribute("data-theme");
-    const newTheme = Theme === "dark" ? "light" : "dark";
-    document.body.setAttribute("data-theme", newTheme);
-    setIcon(newTheme === "light" ? faMoon : faSun);
-  };
+  useEffect(() => {
+    document.body.setAttribute("data-theme", isDarkMode ? "dark" : 'light');
+    setIcon( isDarkMode ? faSun : faMoon);
+  }, [isDarkMode])
 
   const Focused = () => {
     setFocused(true);
@@ -135,7 +129,7 @@ const Header = () => {
         </div>
       </div>
       <div className="box2">
-        <div className="icons" onClick={() => toggleTheme()}>
+        <div className="icons" onClick={() => setIsDarkMode(!isDarkMode)}>
           <FontAwesomeIcon icon={Icon} />
         </div>
         <div className="icons">

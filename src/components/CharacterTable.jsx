@@ -2,7 +2,6 @@ import "../css/CharacterTable.css";
 import CharacterList from "./CharacterList";
 
 const CharacterTable = ({ data }) => {
-    console.log(data);
   return (
     <div className="CharacterContainer">
       {data.characters[0].voiceActors.length > 0 && 

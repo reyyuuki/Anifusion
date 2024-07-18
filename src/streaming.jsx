@@ -1,5 +1,7 @@
 
 import {
+  AniWatchEpisode,
+  AniWatchSteam,
   FetchById,
   FetchEpisodes,
   FetchEpisodesId,
@@ -19,15 +21,17 @@ import AnimeInfo from "./components/AnimeInfo";
 import NotFoundEpisodes from "./components/notFoundEpisodes";
 
 const Streaming = () => {
-  const { id } = useParams();
+  const { id , name} = useParams();
   const [data, setData] = useState(null);
   const [AnimeData, setAnimeData] = useState(null);
   const [episodeData, setEpisodeData] = useState(null);
+  const [AniwatchInfo, setAniwatchInfo] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
   const [selectEpisode, setSelectEpisode] = useState(null);
   const [currentTitle, setCurrentTitle] = useState(null);
   const [poster, setPoster] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(null);
+  const [AniwatchEpisodedata, setAniwatchEpisodeData] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +41,10 @@ const Streaming = () => {
         if (response) {
           setData(response);
           setAnimeData(AnimeInfo);
-          setSelectEpisode(response[0].id);
           setCurrentTitle(response[0].title);
           setPoster(response[0].image);
           setCurrentEpisode(response[0].number);
+        
         } else {
           console.log("Error fetching data");
         }
@@ -53,7 +57,7 @@ const Streaming = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id,AnimeData]);
 
   useEffect(() => {
     const fetchEpisodeData = async () => {
@@ -72,8 +76,29 @@ const Streaming = () => {
       }
     };
 
-    fetchEpisodeData();
-  }, [selectEpisode]);
+  
+  }, []);
+
+
+useEffect( () => {
+  const FetchAniWatchEpisodes = async () => {
+    try {
+      if(currentTitle){
+        const response = await AniWatchEpisode(name,currentTitle);
+        if(response){
+          setSelectEpisode(response);
+            const EpisodeAniwatch = AniWatchSteam(selectEpisode);
+            console.log(EpisodeAniwatch);
+        }
+      }
+     
+    }
+    catch{
+      console.log('Error fetching AniWatch episodes');
+    }
+  }
+  FetchAniWatchEpisodes();
+},[name,currentTitle,selectEpisode]);
 
   const handleEpisodeSelect = (episode, EpisodeTitle,Image,EpisodeNumber) => {
     if (episode) {
@@ -94,11 +119,11 @@ const Streaming = () => {
         {AnimeData.episodes.length > 0 ? 
         <>
           <div className="StreamingContainer">
-            {episodeData && (
+            {AniwatchEpisodedata && (
               <MediaPlayer
                 playsInline
                 title={currentTitle}
-                src={episodeData.sources[4].url}
+                src={AniwatchEpisodedata.sources[0].url}
                 className="Player"
                 poster={poster}
               >
@@ -113,7 +138,7 @@ const Streaming = () => {
               {data &&
                 data.map((item, index) => (
                   <div
-                    onClick={() => handleEpisodeSelect(item.id, item.title,item.image,item.number)}
+                    onClick={() => handleEpisodeSelect(AniwatchInfo.find(i => i.title == item.title).episodeId, item.title,item.image,item.number)}
                     className={`EpisodesRow ${
                       item.id === selectEpisode ? "ActiveRow" : ""
                     }`}
