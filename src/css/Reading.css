@@ -1,27 +1,60 @@
 
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100px);
+    font-family: "Poppins";
+}
+
 .MangaChapters{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 500px;
-    background-color: red;
+    align-items: center;
 }
 .MangaChapters img{
     object-fit: cover;
+    width:80%;
 }
 .Reading-Btn-Container{
-    width: 100%;
+    width: 40%;
     height: 100px;
     background-color: var(--clr--background-color);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .NextBtn{
     background-color:var(--clr--secondary-color);
-    color: white;
+    color: var(--clr--text-color);
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow:inset 0px 0px 1px;
+}
+.ReadingInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:20px;
+    color:var(--clr--text-color);
+}
+.ReadingInfo h1{
+    font-size: 40px;
+}
+.ReadingInfo h2{
+    color:grey;
+    font-weight: 600;
+}
+.NextBtn:hover{
+    background-color: var(--clr--primary-color);
+    transform: scale(1.05);
+}
+.NextBtn:active{
+    transform: scale(0.9);
 }
