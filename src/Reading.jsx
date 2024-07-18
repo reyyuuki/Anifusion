@@ -11,7 +11,7 @@ const Reading = () => {
   const [ChapterId, setChapterId] = useState("");
   const [FilterChapters, setFilterChapters] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
-  const [ChapterNumber, setChapterNumber] = useState('');
+  const [ChapterNumber, setChapterNumber] = useState("");
   const [count, setCount] = useState(0);
   const [NextBtn, setNextBtn] = useState(true);
   const [PrevBtn, setPrevBtn] = useState(false);
@@ -24,24 +24,24 @@ const Reading = () => {
           setMangaData(data);
           console.log(data);
           if (data.chapters && data.chapters.length > 0) {
+            const FilterData = data.chapters.filter(
+              (chapter) => chapter.pages > 0
+            );
+            setFilterChapters(FilterData);
             if (chapter) {
               setChapterId(chapter);
-              const FilterData = data.chapters.filter(
-                (chapter) => chapter.pages > 0
+              const index = FilterData.findIndex(
+                (item) => item.id === chapter
               );
-              const index = FilterData.findIndex((item) => item.id === chapter);
               setCount(index);
-              setFilterChapters(FilterData);
-              setCurrentTitle(FilterChapters[index].title);
-              setChapterNumber(FilterChapters[index].chapterNumber);
+
+              setCurrentTitle(FilterData[index].title);
+              setChapterNumber(FilterData[index].chapterNumber);
               console.log(FilterChapters, count, index);
             } else {
-              setChapterId(data.chapters[0].id);
-              setFilterChapters(
-                data.chapters.filter((chapter) => chapter.pages > 0)
-              );
-              setCurrentTitle(FilterChapters[0].title);
-              setChapterNumber(FilterChapters[0].chapterNumber);
+              setChapterId(FilterData[0].id);
+              setCurrentTitle(FilterData[0].title);
+              setChapterNumber(FilterData[0].chapterNumber);
               console.log(FilterChapters);
             }
           }
