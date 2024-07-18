@@ -1,4 +1,3 @@
-
 import {
   AniWatchEpisode,
   AniWatchSteam,
@@ -21,7 +20,7 @@ import AnimeInfo from "./components/AnimeInfo";
 import NotFoundEpisodes from "./components/notFoundEpisodes";
 
 const Streaming = () => {
-  const { id , name} = useParams();
+  const { id, name } = useParams();
   const [data, setData] = useState(null);
   const [AnimeData, setAnimeData] = useState(null);
   const [episodeData, setEpisodeData] = useState(null);
@@ -31,7 +30,7 @@ const Streaming = () => {
   const [currentTitle, setCurrentTitle] = useState(null);
   const [poster, setPoster] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(null);
-  const [AniwatchEpisodedata, setAniwatchEpisodeData] = useState('');
+  const [AniwatchEpisodedata, setAniwatchEpisodeData] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,20 +43,18 @@ const Streaming = () => {
           setCurrentTitle(response[0].title);
           setPoster(response[0].image);
           setCurrentEpisode(response[0].number);
-        
         } else {
           console.log("Error fetching data");
         }
       } catch (error) {
         console.log("Error:", error);
-      }
-      finally{
+      } finally {
         setLoadingData(false);
       }
     };
 
     fetchData();
-  }, [id,AnimeData]);
+  }, [id, AnimeData]);
 
   useEffect(() => {
     const fetchEpisodeData = async () => {
@@ -69,38 +66,34 @@ const Streaming = () => {
           }
         } catch (error) {
           console.log("Error:", error);
-        }
-        finally{
+        } finally {
           setLoadingData(false);
         }
       }
     };
-
-  
   }, []);
 
-
-useEffect( () => {
-  const FetchAniWatchEpisodes = async () => {
-    try {
-      if(currentTitle){
-        const response = await AniWatchEpisode(name,currentTitle);
-        if(response){
-          setSelectEpisode(response);
-            const EpisodeAniwatch = AniWatchSteam(selectEpisode);
-            console.log(EpisodeAniwatch);
+  useEffect(() => {
+    const FetchAniWatchEpisodes = async () => {
+      try {
+        if (currentTitle && name) {
+          const response = await AniWatchEpisode(name, currentTitle);
+          if (response) {
+            setSelectEpisode(response);
+            if (selectEpisode) {
+              const EpisodeAniwatch = AniWatchSteam(selectEpisode);
+              console.log(EpisodeAniwatch);
+            }
+          }
         }
+      } catch {
+        console.log("Error fetching AniWatch episodes");
       }
-     
-    }
-    catch{
-      console.log('Error fetching AniWatch episodes');
-    }
-  }
-  FetchAniWatchEpisodes();
-},[name,currentTitle,selectEpisode]);
+    };
+    FetchAniWatchEpisodes();
+  }, [name, currentTitle, selectEpisode]);
 
-  const handleEpisodeSelect = (episode, EpisodeTitle,Image,EpisodeNumber) => {
+  const handleEpisodeSelect = (episode, EpisodeTitle, Image, EpisodeNumber) => {
     if (episode) {
       setSelectEpisode(episode);
       setCurrentTitle(EpisodeTitle);
@@ -109,62 +102,68 @@ useEffect( () => {
     }
   };
 
- 
   return (
     <>
       {loadingData ? (
         <Loader />
       ) : (
         <>
-        {AnimeData.episodes.length > 0 ? 
-        <>
-          <div className="StreamingContainer">
-            {AniwatchEpisodedata && (
-              <MediaPlayer
-                playsInline
-                title={currentTitle}
-                src={AniwatchEpisodedata.sources[0].url}
-                className="Player"
-                poster={poster}
-              >
-                <MediaProvider />
-                <DefaultVideoLayout 
-                icons={defaultLayoutIcons} 
-                />
-              </MediaPlayer>
-            )}
-            <div className="EpisodesWrapper">
-              <h1>Episodes</h1>
-              {data &&
-                data.map((item, index) => (
-                  <div
-                    onClick={() => handleEpisodeSelect(AniwatchInfo.find(i => i.title == item.title).episodeId, item.title,item.image,item.number)}
-                    className={`EpisodesRow ${
-                      item.id === selectEpisode ? "ActiveRow" : ""
-                    }`}
-                    key={index}
+          {AnimeData.episodes.length > 0 ? (
+            <>
+              <div className="StreamingContainer">
+                {AniwatchEpisodedata && (
+                  <MediaPlayer
+                    playsInline
+                    title={currentTitle}
+                    src={AniwatchEpisodedata.sources[0].url}
+                    className="Player"
+                    poster={poster}
                   >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="EpisodeImage"
-                    />
-                    <div className="EpisodesInfo">
-                      <h3>Episode {item.number}</h3>
-                      <p>
-                        {item.title.length > 25
-                          ? item.title.substring(0, 22) + "..."
-                          : item.title}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-          <AnimeInfo data={AnimeData} EpisodeData={currentEpisode}/>
-          </> :
-         < NotFoundEpisodes/>
-              }
+                    <MediaProvider />
+                    <DefaultVideoLayout icons={defaultLayoutIcons} />
+                  </MediaPlayer>
+                )}
+                <div className="EpisodesWrapper">
+                  <h1>Episodes</h1>
+                  {data &&
+                    data.map((item, index) => (
+                      <div
+                        onClick={() =>
+                          handleEpisodeSelect(
+                            AniwatchInfo.find((i) => i.title == item.title)
+                              .episodeId,
+                            item.title,
+                            item.image,
+                            item.number
+                          )
+                        }
+                        className={`EpisodesRow ${
+                          item.id === selectEpisode ? "ActiveRow" : ""
+                        }`}
+                        key={index}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="EpisodeImage"
+                        />
+                        <div className="EpisodesInfo">
+                          <h3>Episode {item.number}</h3>
+                          <p>
+                            {item.title.length > 25
+                              ? item.title.substring(0, 22) + "..."
+                              : item.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <AnimeInfo data={AnimeData} EpisodeData={currentEpisode} />
+            </>
+          ) : (
+            <NotFoundEpisodes />
+          )}
         </>
       )}
     </>
