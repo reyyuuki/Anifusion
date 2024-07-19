@@ -11,7 +11,7 @@ import "./css/Streaming.css";
 import Loader from "./components/Loader";
 import "@vidstack/react/player/styles/default/theme.css";
 import "@vidstack/react/player/styles/default/layouts/video.css";
-import { MediaPlayer, MediaProvider } from "@vidstack/react";
+import { MediaPlayer, MediaProvider, Track } from "@vidstack/react";
 import {
   defaultLayoutIcons,
   DefaultVideoLayout,
@@ -40,9 +40,7 @@ const Streaming = () => {
         if (response) {
           setData(response);
           setAnimeData(AnimeInfo);
-          setCurrentTitle(response[0].title);
-          setPoster(response[0].image);
-          setCurrentEpisode(response[0].number);
+          console.log(response);
         } else {
           console.log("Error fetching data");
         }
@@ -57,51 +55,48 @@ const Streaming = () => {
   }, [id]);
 
   useEffect(() => {
-    const fetchEpisodeData = async () => {
-      if (selectEpisode) {
-        try {
-          const streamLink = await FetchEpisodesId(selectEpisode);
-          if (streamLink) {
-            setEpisodeData(streamLink);
-          }
-        } catch (error) {
-          console.log("Error:", error);
-        } finally {
-          setLoadingData(false);
-        }
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     const FetchAniWatchEpisodes = async () => {
-      if(name){
-
-      try {
+      if (name) {
+        try {
           const AniwatchResponse = await AniWatchEpisode(name);
           if (AniwatchResponse) {
             setSelectEpisode(AniwatchResponse[0].episodeId);
             setAniwatchInfo(AniwatchResponse);
-            console.log(selectEpisode,AniwatchInfo);
-            if (selectEpisode){
-              const EpisodeAniwatch = AniWatchSteam(selectEpisode);
-              console.log(EpisodeAniwatch);
-            }
+            setCurrentTitle(AniwatchResponse[0].title);
+            setPoster(AniwatchResponse[0].image);
+            setCurrentEpisode(AniwatchResponse[0].number);
+          }
+        } catch {
+          console.log("Error fetching AniWatch episodes");
         }
-      } catch {
-        console.log("Error fetching AniWatch episodes");
       }
-    }
     };
     FetchAniWatchEpisodes();
-  }, [name,selectEpisode,AniwatchInfo]);
+  }, [name]);
+
+  useEffect(() => {
+    const AniwatchLinkData = async () => {
+      if (selectEpisode) {
+        try {
+          const EpisodeAniwatch = await AniWatchSteam(selectEpisode);
+          if (EpisodeAniwatch) {
+            setAniwatchEpisodeData(EpisodeAniwatch);
+            console.log(EpisodeAniwatch);
+          }
+        } catch {
+          console.log("Error fetching AniWatch Link");
+        }
+      }
+    };
+    AniwatchLinkData();
+  }, [selectEpisode]);
 
   const handleEpisodeSelect = (episode, EpisodeTitle, Image, EpisodeNumber) => {
     if (episode) {
       setSelectEpisode(episode);
       setCurrentTitle(EpisodeTitle);
       setPoster(Image);
-      setCurrentTitle(EpisodeNumber);
+      setCurrentEpisode(EpisodeNumber);
     }
   };
 
@@ -120,21 +115,30 @@ const Streaming = () => {
                     title={currentTitle}
                     src={AniwatchEpisodedata.sources[0].url}
                     className="Player"
-                    poster={poster}
                   >
+                    {AniwatchEpisodedata.tracks.map((item,index) => (
+                      <Track
+                      key={index}
+                      src={item.file}
+                      kind={item.kind}
+                      label={item.label}
+                      default
+                    />
+                     ) )
+                    
+}
                     <MediaProvider />
                     <DefaultVideoLayout icons={defaultLayoutIcons} />
                   </MediaPlayer>
                 )}
                 <div className="EpisodesWrapper">
                   <h1>Episodes</h1>
-                  {data &&
-                    data.map((item, index) => (
+                  {AniwatchInfo &&
+                    AniwatchInfo.map((item, index) => (
                       <div
                         onClick={() =>
                           handleEpisodeSelect(
-                            AniwatchInfo.find((i) => i.title == item.title)
-                              .episodeId,
+                            item.episodeId,
                             item.title,
                             item.image,
                             item.number
@@ -146,7 +150,7 @@ const Streaming = () => {
                         key={index}
                       >
                         <img
-                          src={item.image}
+                          src={data[index].image}
                           alt={item.title}
                           className="EpisodeImage"
                         />
