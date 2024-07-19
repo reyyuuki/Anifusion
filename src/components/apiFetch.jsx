@@ -123,12 +123,11 @@ export const AniWatchIdApi = async  (title) => {
 
 }
 
-export const AniWatchEpisode = async  (name,title) => {
+export const AniWatchEpisode = async  (name) => {
 
         const response = await fetch(`https://aniwatch-ryan.vercel.app/anime/episodes/${name}`);
         const result = await response.json();
-        const filter = result.episodes.find(item => item.title === title);
-        return filter.episodeId;
+        return result.episodes;
         
 }
 

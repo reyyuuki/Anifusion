@@ -54,7 +54,7 @@ const Streaming = () => {
     };
 
     fetchData();
-  }, [id, AnimeData]);
+  }, [id]);
 
   useEffect(() => {
     const fetchEpisodeData = async () => {
@@ -75,23 +75,26 @@ const Streaming = () => {
 
   useEffect(() => {
     const FetchAniWatchEpisodes = async () => {
+      if(name){
+
       try {
-        if (currentTitle && name) {
-          const response = await AniWatchEpisode(name, currentTitle);
-          if (response) {
-            setSelectEpisode(response);
-            if (selectEpisode) {
+          const AniwatchResponse = await AniWatchEpisode(name);
+          if (AniwatchResponse) {
+            setSelectEpisode(AniwatchResponse[0].episodeId);
+            setAniwatchInfo(AniwatchResponse);
+            console.log(selectEpisode,AniwatchInfo);
+            if (selectEpisode){
               const EpisodeAniwatch = AniWatchSteam(selectEpisode);
               console.log(EpisodeAniwatch);
             }
-          }
         }
       } catch {
         console.log("Error fetching AniWatch episodes");
       }
+    }
     };
     FetchAniWatchEpisodes();
-  }, [name, currentTitle, selectEpisode]);
+  }, [name,selectEpisode,AniwatchInfo]);
 
   const handleEpisodeSelect = (episode, EpisodeTitle, Image, EpisodeNumber) => {
     if (episode) {
@@ -108,7 +111,7 @@ const Streaming = () => {
         <Loader />
       ) : (
         <>
-          {AnimeData.episodes.length > 0 ? (
+          {AnimeData && AnimeData.episodes.length > 0 ? (
             <>
               <div className="StreamingContainer">
                 {AniwatchEpisodedata && (
