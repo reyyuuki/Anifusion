@@ -56,7 +56,9 @@ const Details = () => {
     <>
       {!loadingData ? (
         <>
+        {data && AniWatchData &&
           <DetailsCourasale data={data} name={AniWatchData} isManga={false} />
+        }
           <div className="DescriptionContainer">
             <div className="Description">
               <p>

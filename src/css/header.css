@@ -25,16 +25,19 @@
 }
 
 .Heading{
-    font-size: 35px;
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--clr--text-color);
+    font-size: 25px;
     text-align: center;
-    background: linear-gradient(to right, deeppink,deeppink, white,white);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+}
+.Letter-A{
+    font-size: 45px;
+    color:var(--clr--Letter-color);
+    font-weight: 700;
 }
 
 .SearchContainer{
-    background-color:var(--clr--secondary-color);
+    background-color:var(--clr--other-color);
     min-height:35px;
     width:390px;
     color:var(--clr--text-color);
@@ -50,7 +53,7 @@
 }
 
 .SearchList{
-    background-color: var(--clr--secondary-color);
+    background-color: var(--clr--other-color);
     width: 100%;
     min-height:300px;
     overflow-y: scroll;
@@ -145,7 +148,7 @@
     height:40px;
     width:40px;
     border-radius: 5px;
-    background-color: var(--clr--secondary-color);
+    background-color: var(--clr--other-color);
     justify-content: center;
     align-items: center;
     display: flex;

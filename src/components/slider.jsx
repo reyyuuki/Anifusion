@@ -13,7 +13,7 @@ import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
 const Slider = ({ result, isManga }) => {
   const [emblaRef] = useEmblaCarousel();
-
+  
   return (
     <div className="SliderContainer">
       <div className="embla" ref={emblaRef}>
@@ -93,7 +93,7 @@ const Slider = ({ result, isManga }) => {
                       />
                       <p className="iconText">Details</p>
                     </Link>
-                    <Link to={ isManga ? `/ReadingManga/${item.id}` : `  /Streaming/${item.id}`} className="btn" >
+                    <Link to={ isManga ? `/ReadingManga/${item.id}` : ` /Streaming/${item.id}`} className="btn" >
                       <FontAwesomeIcon
                         icon={faCirclePlay}
                         className="iconStyles"

@@ -13,9 +13,7 @@ import { useState, useEffect } from "react";
 import { FetchBySearch, MangaSearch } from "./apiFetch";
 import { useLocation } from "react-router-dom";
 
-
 const Header = () => {
-  
   const [Icon, setIcon] = useState(faSun);
   const [closeIcon, setCloseIcon] = useState(faSnowflake);
   const [name, setName] = useState("");
@@ -24,24 +22,23 @@ const Header = () => {
   const [isManga, setIsManga] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const location = useLocation();
-  
+
   const handleSearch = (e) => {
     setName(e.target.value);
   };
 
   useEffect(() => {
     const SearchAnime = async () => {
-      if(location.pathname.includes("Manga")){
+      if (location.pathname.includes("Manga")) {
         setIsManga(true);
-      }
-      else{
+      } else {
         setIsManga(false);
       }
       if (isManga) {
         const manga = await MangaSearch(name);
         if (manga) {
           setAnimeList(manga);
-        } 
+        }
       } else {
         const anime = await FetchBySearch(name);
         if (anime) {
@@ -53,9 +50,9 @@ const Header = () => {
   }, [name, location.pathname]);
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", isDarkMode ? "dark" : 'light');
-    setIcon( isDarkMode ? faSun : faMoon);
-  }, [isDarkMode])
+    document.body.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+    setIcon(isDarkMode ? faMoon : faSun);
+  }, [isDarkMode]);
 
   const Focused = () => {
     setFocused(true);
@@ -64,11 +61,13 @@ const Header = () => {
   const UnFocsed = () => {
     setFocused(false);
     setCloseIcon(faSnowflake);
-  }
+  };
 
   return (
     <div className="header">
-      <h1 className="Heading">YurAni </h1>
+      <h1 className="Heading">
+        <span className="Letter-A">A</span>nifusion
+      </h1>
       <div className="box1">
         <div className="SearchContainer">
           <div className="SearchBox">
@@ -80,7 +79,11 @@ const Header = () => {
               onClick={() => Focused()}
               onChange={handleSearch}
             />
-            <FontAwesomeIcon icon={closeIcon} onClick={() => UnFocsed()} className="SnowIcon" />
+            <FontAwesomeIcon
+              icon={closeIcon}
+              onClick={() => UnFocsed()}
+              className="SnowIcon"
+            />
           </div>
           <div className={focused ? "SearchList" : ""}>
             {animeList &&
@@ -111,9 +114,9 @@ const Header = () => {
                           {item.releaseDate || "??"}
                         </div>
                         <div className="Search-ItemDiv">
-                      <ion-icon name="star"></ion-icon>
-                      {item.rating / 10 || "??"}
-                    </div>
+                          <ion-icon name="star"></ion-icon>
+                          {item.rating / 10 || "??"}
+                        </div>
                       </div>
                     </div>
                   </a>
