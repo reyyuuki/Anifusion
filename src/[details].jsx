@@ -13,6 +13,7 @@ const Details = () => {
   const [data, setData] = useState([]);
   const [AnimeTitle, setAnimeList] = useState("");
   const [AniWatchData, setAniWatchData] = useState([]);
+  const [loadingData , setLoadingData] = useState(true);
 
   useEffect(() => {
     const Fetching = async () => {
@@ -21,7 +22,8 @@ const Details = () => {
         if (response) {
           setData(response);
           window.scrollTo(0, 0);
-          setAnimeList(response.title.english);
+          setAnimeList(response.title.english || response.title.romaji);
+          setLoadingData(false);
         } else {
           console.log("Error fetching data");
         }
@@ -47,63 +49,39 @@ const Details = () => {
       }
     };
     AniWatchFetch();
-  },  [AniWatchData,AnimeTitle]);
+  }, [AniWatchData, AnimeTitle]);
 
-  if (!data) {
-    return (
-      <div className="SkeletonContainer">
-        <Skeleton
-          variant="rectangular"
-          sx={{ bgcolor: "grey.900" }}
-          animation="wave"
-          className="Details-Skeleton"
-        />
-        <div className="DescriptionContainer">
-          <Skeleton
-            variant="rectangular"
-            sx={{ bgcolor: "grey.900" }}
-            animation="wave"
-            className="Description"
-          />
-        </div>
-        <div className="InfoContainer">
-          <Skeleton
-            variant="rectangular"
-            sx={{ bgcolor: "grey.900" }}
-            animation="wave"
-            className="InfoTable"
-          />
-        </div>
-        <div className="RecommendedSection">
-          <Skeleton
-            variant="rectangular"
-            sx={{ bgcolor: "grey.900" }}
-            animation="wave"
-            className="Recommended-Skeleton"
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>
-      <DetailsCourasale data={data} name={AniWatchData} isManga={false} />
-      <div className="DescriptionContainer">
-        <div className="Description">
-          <p>
-            {data.description
-              ? data.description.replace(/<\/?[^>]+(>|$)/g, "")
-              : "N/A"}
-          </p>
+      {!loadingData ? (
+        <>
+          <DetailsCourasale data={data} name={AniWatchData} isManga={false} />
+          <div className="DescriptionContainer">
+            <div className="Description">
+              <p>
+                {data.description
+                  ? data.description.replace(/<\/?[^>]+(>|$)/g, "")
+                  : "N/A"}
+              </p>
+            </div>
+          </div>
+          <InfoElement data={data} isManga={false} />
+          <div className="RecommendedSection">
+            <AnimeList result={data.recommendations} name={"Recommended"} />
+          </div>
+          {data.characters && data.characters.length > 0 && (
+            <CharacterTable data={data} />
+          )}
+        </>
+      ) : (
+        <div className="SkeletonContainer">
+        <Skeleton
+          variant="rectangular"
+          sx={{ bgcolor: "grey.800" }}
+          className="Details-Skeleton"
+        />
         </div>
-      </div>
-      <InfoElement data={data} isManga={false} />
-      <div className="RecommendedSection">
-        <AnimeList result={data.recommendations} name={"Recommended"} />
-      </div>
-      {data.characters && data.characters.length > 0 && (
-        <CharacterTable data={data} />
       )}
     </>
   );

@@ -35,12 +35,10 @@ const Streaming = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await FetchEpisodes(id);
         const AnimeInfo = await FetchById(id);
-        if (response) {
-          setData(response);
+        if (AnimeInfo) {
           setAnimeData(AnimeInfo);
-          console.log(response);
+          console.log(AnimeInfo);
         } else {
           console.log("Error fetching data");
         }
@@ -65,6 +63,7 @@ const Streaming = () => {
             setCurrentTitle(AniwatchResponse[0].title);
             setPoster(AniwatchResponse[0].image);
             setCurrentEpisode(AniwatchResponse[0].number);
+            console.log(AniwatchResponse);
           }
         } catch {
           console.log("Error fetching AniWatch episodes");
@@ -81,7 +80,6 @@ const Streaming = () => {
           const EpisodeAniwatch = await AniWatchSteam(selectEpisode);
           if (EpisodeAniwatch) {
             setAniwatchEpisodeData(EpisodeAniwatch);
-            console.log(EpisodeAniwatch);
           }
         } catch {
           console.log("Error fetching AniWatch Link");
@@ -106,7 +104,7 @@ const Streaming = () => {
         <Loader />
       ) : (
         <>
-          {AnimeData && AnimeData.episodes.length > 0 ? (
+          {AnimeData ?  (
             <>
               <div className="StreamingContainer">
                 {AniwatchEpisodedata && (
@@ -116,17 +114,15 @@ const Streaming = () => {
                     src={AniwatchEpisodedata.sources[0].url}
                     className="Player"
                   >
-                    {AniwatchEpisodedata.tracks.map((item,index) => (
+                    {AniwatchEpisodedata.tracks.map((item, index) => (
                       <Track
-                      key={index}
-                      src={item.file}
-                      kind={item.kind}
-                      label={item.label}
-                      default
-                    />
-                     ) )
-                    
-}
+                        key={index}
+                        src={item.file}
+                        kind={item.kind}
+                        label={item.label}
+                        default
+                      />
+                    ))}
                     <MediaProvider />
                     <DefaultVideoLayout icons={defaultLayoutIcons} />
                   </MediaPlayer>
@@ -145,12 +141,12 @@ const Streaming = () => {
                           )
                         }
                         className={`EpisodesRow ${
-                          item.id === selectEpisode ? "ActiveRow" : ""
+                          item.episodeId === selectEpisode ? "ActiveRow" : ""
                         }`}
                         key={index}
                       >
                         <img
-                          src={data[index].image}
+                          src={ data && data[index].image || AnimeData.image}
                           alt={item.title}
                           className="EpisodeImage"
                         />
@@ -171,6 +167,7 @@ const Streaming = () => {
           ) : (
             <NotFoundEpisodes />
           )}
+
         </>
       )}
     </>

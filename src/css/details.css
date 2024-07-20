@@ -33,16 +33,26 @@
     place-items: center;
     position: relative;
     top:65px;
+    animation: grow 0.7s infinite;
 }
 .Details-Skeleton{
     width:95%;
     min-height: 500px;
+    
 }
 
 .Recommended-Skeleton{
     width:93%;
     min-height: 400px;
     border-radius: 10px;
+}
+@keyframes grow {
+    0% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 @media only screen and (max-width:768px){
     .Description p{
