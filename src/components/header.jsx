@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { FetchBySearch, MangaSearch } from "./apiFetch";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [Icon, setIcon] = useState(faSun);
@@ -85,14 +85,14 @@ const Header = () => {
               className="SnowIcon"
             />
           </div>
-          <div className={focused ? "SearchList" : ""}>
+          <div className="SearchList" style={focused ? { display: 'flex' } : {display: 'none'}}>
             {animeList &&
               animeList.map((item, index) =>
-                focused ? (
-                  <a
-                    href={`/details/${item.id}`}
+                  <Link
+                    to={`/details/${item.id}`}
                     key={index}
                     className="SearchItem"
+                    onClick={() => UnFocsed()}
                   >
                     <img src={item.image} alt="" className="SearchItemImage" />
                     <div className="SearchItemInfo">
@@ -119,8 +119,7 @@ const Header = () => {
                         </div>
                       </div>
                     </div>
-                  </a>
-                ) : null
+                  </Link>
               )}
           </div>
         </div>

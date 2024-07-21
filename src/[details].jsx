@@ -6,26 +6,32 @@ import InfoElement from "./components/infoElement";
 import DetailsCourasale from "./components/details-Courasale";
 import CharacterTable from "./components/CharacterTable";
 import AnimeList from "./components/AnimeList";
-import { AniWatchIdApi, FetchById } from "./components/apiFetch";
+import { AniWatchIdApi, FetchByData, FetchById } from "./components/apiFetch";
 
 const Details = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [AnimeTitle, setAnimeList] = useState("");
   const [AniWatchData, setAniWatchData] = useState([]);
-  const [loadingData , setLoadingData] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
 
   useEffect(() => {
     const Fetching = async () => {
       try {
-        const response = await FetchById(id);
-        if (response) {
-          setData(response);
-          window.scrollTo(0, 0);
-          setAnimeList(response.title.english || response.title.romaji);
-          
-        } else {
-          console.log("Error fetching data");
+        if (id == 21 || id == "21" ){
+          const response = await FetchByData(id);
+          if (response) {
+            setData(response);
+            window.scrollTo(0, 0);
+            setAnimeList(response.title.english || response.title.romaji);
+          }
+         } else {
+            const response = await FetchById(id);
+            if (response) {
+              setData(response);
+              window.scrollTo(0, 0);
+              setAnimeList(response.title.english || response.title.romaji);
+            }
         }
       } catch (error) {
         console.log("Error:", error);
@@ -36,29 +42,30 @@ const Details = () => {
 
   useEffect(() => {
     const AniWatchFetch = async () => {
-      try {
-        const aniWatch = await AniWatchIdApi(AnimeTitle);
-        if (aniWatch) {
-          setAniWatchData(aniWatch);
-          setLoadingData(false);
-        } else {
-          console.log("AniWatch not available");
+      if (AnimeTitle) {
+        try {
+          const aniWatch = await AniWatchIdApi(AnimeTitle);
+          if (aniWatch) {
+            setAniWatchData(aniWatch);
+            setLoadingData(false);
+          } else {
+            console.log("AniWatch not available");
+          }
+        } catch {
+          console.log("Error fetching AniWatch data:");
         }
-      } catch {
-        console.log("Error fetching AniWatch data:");
       }
     };
     AniWatchFetch();
-  }, [AniWatchData, AnimeTitle]);
-
+  }, [AnimeTitle]);
 
   return (
     <>
       {!loadingData ? (
         <>
-        {data && AniWatchData &&
-          <DetailsCourasale data={data} name={AniWatchData} isManga={false} />
-        }
+          {data && AniWatchData && (
+            <DetailsCourasale data={data} name={AniWatchData} isManga={false} />
+          )}
           <div className="DescriptionContainer">
             <div className="Description">
               <p>
@@ -78,11 +85,11 @@ const Details = () => {
         </>
       ) : (
         <div className="SkeletonContainer">
-        <Skeleton
-          variant="rectangular"
-          sx={{ bgcolor: "grey.800" }}
-          className="Details-Skeleton"
-        />
+          <Skeleton
+            variant="rectangular"
+            sx={{ bgcolor: "grey.800" }}
+            className="Details-Skeleton"
+          />
         </div>
       )}
     </>

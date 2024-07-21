@@ -55,7 +55,7 @@
     width: 140px;
     height: 30px;
     padding: 10px 20px;
-    background-color: var(--clr--other-color);
+    background-color: var(--clr--primary-color);
     color: var(--clr--text-color);
     border-radius: 10px;
     font-size: 20px;

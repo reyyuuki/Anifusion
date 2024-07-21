@@ -45,6 +45,13 @@ export const FetchById = async  (id) => {
         return result;
 }
 
+export const FetchByData = async  (id) => {
+        
+        const response = await fetch(`${BASE_URL}data/${id}?provider=gogoanime`);
+        const result = await response.json();
+        return result;
+}
+
 export const FetchEpisodes = async  (id) => {
         
         const response = await fetch(`${BASE_URL}episodes/${id}`);
