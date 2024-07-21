@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
        <div className="PageContainer">
          <h1 className='WelcomeLine'>Explore <span className='Letter-A'>A</span>nifusion's magic!</h1>
-         <h2 className='Intro'>Stream your favorite anime and read captivating manga seamlessly on AniFusion</h2>
+         <h2 className='Intro'>Stream your favorite anime and read captivating manga seamlessly on Anifusion</h2>
          <div className='Home-ImageContainer'>
          <img src={img1} alt="Character-Image" className='RightPhoto'/>
          <img src={img2} alt="Character-Image" className='LeftPhoto'/>
