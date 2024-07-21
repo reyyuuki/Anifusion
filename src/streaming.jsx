@@ -1,5 +1,6 @@
 import {
   AniWatchEpisode,
+  AniWatchServer,
   AniWatchSteam,
   FetchById,
   FetchEpisodes,
@@ -31,6 +32,7 @@ const Streaming = () => {
   const [poster, setPoster] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(null);
   const [AniwatchEpisodedata, setAniwatchEpisodeData] = useState("");
+  const [isDub, setIsDub] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +40,6 @@ const Streaming = () => {
         const AnimeInfo = await FetchById(id);
         if (AnimeInfo) {
           setAnimeData(AnimeInfo);
-          console.log(AnimeInfo);
         } else {
           console.log("Error fetching data");
         }
@@ -63,7 +64,6 @@ const Streaming = () => {
             setCurrentTitle(AniwatchResponse[0].title);
             setPoster(AniwatchResponse[0].image);
             setCurrentEpisode(AniwatchResponse[0].number);
-            console.log(AniwatchResponse);
           }
         } catch {
           console.log("Error fetching AniWatch episodes");
@@ -77,9 +77,20 @@ const Streaming = () => {
     const AniwatchLinkData = async () => {
       if (selectEpisode) {
         try {
-          const EpisodeAniwatch = await AniWatchSteam(selectEpisode);
-          if (EpisodeAniwatch) {
-            setAniwatchEpisodeData(EpisodeAniwatch);
+          if(isDub){
+            const DubServerData = await AniWatchServer(selectEpisode,"vidstreaming","dub");
+
+            if(DubServerData){
+              setAniwatchEpisodeData(DubServerData);
+              console.log(DubServerData);
+            }
+          }
+          else{
+            const SubServerData = await AniWatchServer(selectEpisode,"vidstreaming","sub");
+            if(SubServerData){
+              setAniwatchEpisodeData(SubServerData);
+              console.log(SubServerData);
+            }
           }
         } catch {
           console.log("Error fetching AniWatch Link");
@@ -87,7 +98,7 @@ const Streaming = () => {
       }
     };
     AniwatchLinkData();
-  }, [selectEpisode]);
+  }, [selectEpisode,isDub]);
 
   const handleEpisodeSelect = (episode, EpisodeTitle, Image, EpisodeNumber) => {
     if (episode) {
@@ -97,6 +108,13 @@ const Streaming = () => {
       setCurrentEpisode(EpisodeNumber);
     }
   };
+  const handleDub = () => {
+    setIsDub(true);
+  }
+
+  const handleSub = () => {
+    setIsDub(false);
+  }
 
   return (
     <>
@@ -104,7 +122,7 @@ const Streaming = () => {
         <Loader />
       ) : (
         <>
-          {AnimeData ?  (
+          {AnimeData ? (
             <>
               <div className="StreamingContainer">
                 {AniwatchEpisodedata && (
@@ -146,7 +164,7 @@ const Streaming = () => {
                         key={index}
                       >
                         <img
-                          src={ data && data[index].image || AnimeData.image}
+                          src={(data && data[index].image) || AnimeData.image}
                           alt={item.title}
                           className="EpisodeImage"
                         />
@@ -162,12 +180,29 @@ const Streaming = () => {
                     ))}
                 </div>
               </div>
-              <AnimeInfo data={AnimeData} EpisodeData={currentEpisode} />
+              <div className="stream-AnimeDetails">
+                <div className="stream-CurrentDetails">
+                  <h2>
+                    {AnimeData.title.english || AnimeData.title.romaji || "N/A"}
+                  </h2>
+                  <h3>Episode {currentEpisode}</h3>
+                </div>
+                <div className="Servers">
+                    <div className={isDub ? "ServerDiv" : "ActiveBtn"} onClick={() => isDub ?  handleSub() : null}>
+                    <ion-icon name="logo-closed-captioning"></ion-icon>
+                      Sub
+                    </div>
+                    <div className={isDub ? "ActiveBtn" : "ServerDiv"} onClick={() => !isDub ?  handleDub() : null}>
+                      <ion-icon name="mic-outline"></ion-icon>
+                      Dub
+                    </div>
+                </div>
+              </div>
+              <AnimeInfo data={AnimeData} />
             </>
           ) : (
             <NotFoundEpisodes />
           )}
-
         </>
       )}
     </>

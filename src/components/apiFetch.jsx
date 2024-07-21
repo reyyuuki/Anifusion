@@ -142,3 +142,11 @@ export const AniWatchSteam = async  (episodeId) => {
         return result;
 
 }
+
+export const AniWatchServer = async  (episodeId, server, category) => {
+
+        const response = await fetch(`${BASE_ANiWATCH_URL}episode-srcs?id=${episodeId}?server=${server}&category=${category}`);
+        const result = await response.json();
+        return result;
+
+}

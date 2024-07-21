@@ -15,10 +15,11 @@
     width:65%;
     display: flex;
     flex-direction: column;
+    height: min-content;
+    border-bottom:1px solid var(--clr--secondary-color);
 }
 .stream-table{
     width:35%;
-    height: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -37,15 +38,59 @@
     width: 90%;
 }
 .stream-AnimeDetails{
-    width:100%;
+    width:65%;
     height: 100px;
     border-top: 1px solid var(--clr--secondary-color);
     border-bottom:1px solid var(--clr--secondary-color);
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     color:var(--clr--text-color);
     padding: 0px 10px;
+    margin-top: 70px;
+    margin-left: 20px;
+}
+.stream-CurrentDetails{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.Servers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ServerDiv{
+    width:100px;
+    height: 40px;
+    background-color: var(--clr--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    gap:10px;
+}
+.ServerDiv:Hover{
+    background-color: #1743a27c;
+    transform: scale(1.03);
+}
+.ServerDiv:active{
+    transform: scale(0.90);
+}
+.ActiveBtn{
+    width:100px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    gap:10px;
+    background-color:var(--clr--Letter-color);
 }
 .stream-AnimeDetails h3{
     color:grey;
@@ -55,9 +100,8 @@
     width:100%;
     display: flex;
     flex-direction: column;
-    border-bottom:1px solid var(--clr--secondary-color);
     color:var(--clr--text-color);
-    gap:30px;
+    gap:40px;
     padding: 20px 0px;
 }
 .stream-AnimeCard-Details{
@@ -136,6 +180,7 @@
         flex-direction: column;
         padding: 0;
         align-items: center;
+        margin-top: -50px;
     }
     .stream-InfoContainer{
         width: 90%;
@@ -180,5 +225,18 @@
         justify-content: center;
         align-items: center;
         padding: 10px 0px;
+    }
+    .stream-AnimeDetails{
+        width:100%;
+    }
+    .stream-CurrentDetails h2{
+        font-size: 20px;
+    }
+    .Servers{
+        transform: scale(0.8);
+        margin-right: 30px;
+    }
+    .stream-AnimeCard{
+        gap: 60px;
     }
 }

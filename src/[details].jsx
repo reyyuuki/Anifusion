@@ -23,7 +23,7 @@ const Details = () => {
           setData(response);
           window.scrollTo(0, 0);
           setAnimeList(response.title.english || response.title.romaji);
-          setLoadingData(false);
+          
         } else {
           console.log("Error fetching data");
         }
@@ -40,7 +40,7 @@ const Details = () => {
         const aniWatch = await AniWatchIdApi(AnimeTitle);
         if (aniWatch) {
           setAniWatchData(aniWatch);
-          console.log(aniWatch);
+          setLoadingData(false);
         } else {
           console.log("AniWatch not available");
         }

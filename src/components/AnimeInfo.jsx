@@ -1,14 +1,10 @@
 import "../css/AnimeInfo.css";
 import Table from "./Table";
 
-const AnimeInfo = ({ data, EpisodeData }) => {
+const AnimeInfo = ({ data }) => {
   return (
     <div className="stream-AnimeInformation">
       <div className="stream-InfoContainer">
-        <div className="stream-AnimeDetails">
-          <h2>{data.title.english || data.title.romaji || "N/A"}</h2>
-          <h3>Episode {EpisodeData}</h3>
-        </div>
         <div className="stream-AnimeCard">
           <div className="stream-AnimeCard-Details">
             <img
@@ -60,11 +56,7 @@ const AnimeInfo = ({ data, EpisodeData }) => {
             </div>
           </div>
           <div className="stream-Description">
-            {data.description.length > 350
-              ? data.description
-                  .replace(/<\/?[^>]+(>|$)/g, "")
-                  .substring(0, 350) + "..."
-              : data.description.replace(/<\/?[^>]+(>|$)/g, "")}
+            {data.description.replace(/<\/?[^>]+(>|$)/g, "")}
           </div>
         </div>
       </div>
