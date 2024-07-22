@@ -63,6 +63,14 @@
     font-style: italic;
     font-weight: 500;
 }
+
+@media only screen and (min-width:1300px) {
+    .CharacterImage{
+        width:80px;
+        border-radius: 10px;
+    }
+}
+
 @media only screen and (max-width:768px){
     .CharacterContainer{
         flex-direction: column;

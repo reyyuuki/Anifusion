@@ -1,8 +1,7 @@
-
 import "../css/AnimeList.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/css';
-import Skeleton from '@mui/material/Skeleton';
+import "swiper/css";
+import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
 
 const AnimeList = ({ result, name, isManga }) => {
@@ -17,22 +16,34 @@ const AnimeList = ({ result, name, isManga }) => {
         >
           {result.map((item, index) => (
             <SwiperSlide key={index} className="AnimeCard">
-              <Link to={isManga ? `/MangaDetails/${item.id}` : `/details/${item.id}`} className="IdLink">
-              <div className="ImageContainer">
-                <img src={item.image} alt="anime Image" className="AnimeImage" />
-                <div className="Anime-Details">
-                  <div>
-                  <p>{item.type}</p>
-                  <ion-icon name="ellipse"></ion-icon>
-                  <h4 className="Anime-Status">{item.status}</h4>
-                  <ion-icon name="ellipse"></ion-icon>
-                  <p>Ep {item.totalEpisodes}</p>
+              <Link
+                to={
+                  isManga ? `/MangaDetails/${item.id}` : `/details/${item.id}`
+                }
+                className="IdLink"
+              >
+                <div className="ImageContainer">
+                  <img
+                    src={item.image}
+                    alt="anime Image"
+                    className="AnimeImage"
+                  />
+                  <div className="Anime-Details">
+                    <div>
+                      <p>{item.type || "N/A"}</p>
+                      <ion-icon name="ellipse"></ion-icon>
+                      <h4 className="Anime-Status">{item.status || "N/A"}</h4>
+                      <ion-icon name="ellipse"></ion-icon>
+                      <p>Ep {item.totalEpisodes || "N/A"}</p>
+                    </div>
                   </div>
-                </div>
                 </div>
                 <div className="AnimeInfo">
                   {(item.title.english || item.title.romaji).length > 20
-                    ? (item.title.english || item.title.romaji).substring(0, 16) + "..."
+                    ? (item.title.english || item.title.romaji).substring(
+                        0,
+                        16
+                      ) + "..."
                     : item.title.english || item.title.romaji}
                 </div>
               </Link>
@@ -40,7 +51,12 @@ const AnimeList = ({ result, name, isManga }) => {
           ))}
         </Swiper>
       ) : (
-        <Skeleton variant="rectangular" sx={{ bgcolor: 'grey.900' }} animation="wave" className="Skeleton" />
+        <Skeleton
+          variant="rectangular"
+          sx={{ bgcolor: "grey.900" }}
+          animation="wave"
+          className="Skeleton"
+        />
       )}
     </div>
   );

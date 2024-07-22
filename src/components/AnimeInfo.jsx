@@ -61,8 +61,8 @@ const AnimeInfo = ({ data }) => {
         </div>
       </div>
       <div className="stream-table">
+      <h1>Related </h1>
         <div className="stream-tableData">
-        <h1>Related </h1>
         <Table result={data.relations} />
         </div>
       </div>

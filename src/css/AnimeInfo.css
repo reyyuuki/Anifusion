@@ -20,13 +20,15 @@
 }
 .stream-table{
     width:35%;
+    height: 550px;
+    transition: 1s ease;
+    color: var(--clr--text-color);
+    transform: translateY(-70px);
+}
+.stream-tableData{
     overflow-y: scroll;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    transition: 1s ease;
-    color: var(--clr--text-color);
-}
-.stream-tableData{
     width:100%;
     height: 90%;
     display: flex;
@@ -174,6 +176,15 @@
     border: 1px solid var(--clr--secondary-color);
     border-radius: 10px;
 }
+
+
+@media only screen and (min-width:1300px) {
+    .stream-Image{
+        width:200px;
+        border-radius: 10px;
+    }
+}
+
 
 @media only screen and (max-width: 768px){
     .stream-AnimeInformation{
